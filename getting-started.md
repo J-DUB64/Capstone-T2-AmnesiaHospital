@@ -31,7 +31,7 @@ This document is intended by used as a guide for the initial setup and ongoing c
     Whatever you select as a base package name, make a note of it; you'll not only use it now, but in the step that follows. 
 
     <a id="main-class"></a>**_Task_**    
-    Create a new Java class, located in the base package you've decided on, all inside the `src/main/java` directory. (You can do this by creating the package first, and then the class, or by creating the class using the fully qualified name.) This class will serve as your application's entry point (or one of them); that is, it will include a `public static void main(String[] args)` method. Thus, the simple name of the class should be something appropriate to that purpose---e.g. `AmnesiaHospitalGame` or `Application`. 
+    Create a new Java class, located in the base package you've decided on, all inside the `src/main/java` directory. (You can do this by creating the package first, and then the class, or by creating the class using the fully qualified name.) This class will serve as your application's entry point (or one of them); that is, it will include a `public static void main(String[] args)` method. Thus, the simple name of the class should be something appropriate to that purpose---e.g. `Main` or `Application`. 
 
 4. ### Complete the Maven coordinates
 
@@ -61,7 +61,7 @@ This document is intended by used as a guide for the initial setup and ongoing c
     The project is configured to use the `com.github.johnrengelman.shadow` plug-in (see line 2 of [`build.gradle`](build.gradle)) to create a runnable JAR from the root project, with all runtime dependencies packaged in the same JAR. This plug-in uses the `mainClass` property of the `application` plug-in to set the corresponding attribute of the JAR's manifest. 
 
     **_Task_**    
-    Set the main class of the JAR artifacts that will be built by modifying the value of the `mainClass` property in [`gradle.properties`](gradle.properties), replacing `replace.me.project.AmnesiaHospitalGame` with the fully qualified name of your [main class](#main-class). (There's a `TODO` comment for this change in that file.)       
+    Set the main class of the JAR artifacts that will be built by modifying the value of the `mainClass` property in [`gradle.properties`](gradle.properties), replacing `replace.me.project.Main` with the fully qualified name of your [main class](#main-class). (There's a `TODO` comment for this change in that file.)       
 
 6. ### Review source and resource folder structure
 
