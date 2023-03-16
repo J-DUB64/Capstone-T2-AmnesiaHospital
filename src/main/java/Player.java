@@ -37,14 +37,14 @@ public class Player {
   }
 
   public void useItem(String itemName) {
-    Item item = inventory.get(itemName);
-    if (item != null) {
+    if (inventory.containsKey(itemName)) {
+      Item item = inventory.get(itemName);
       item.use(this);
-      System.out.println("You used " + itemName);
     } else {
-      System.out.println("You don't have that item in your inventory.");
+      System.out.println("You don't have that item!");
     }
   }
+
 
   public void addItem(Item item) {
     inventory.put(item.getName(), item);
