@@ -1,45 +1,33 @@
-import com.amnesiaHospital.gson.Gson;
-import com.gson.reflect.TypeToken;
-
-import java.io.FileReader;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.io.InputStream;
 import java.util.List;
-import java.util.Map;
 
 public class Board {
-  private Room startingRoom;
+  List<Room> Board;
 
-  public Board() {
-    try {
-      Gson gson = new Gson();
-      Type roomListType = new TypeToken<List<Room>>() {}.getType();
-      List<Room> rooms = gson.fromJson(new FileReader("game_data.json"), roomListType);
+  public Board(){
+      Board = generateRooms();
+  }
 
-      // Create a map of room names to Room objects
-      Map<String, Room> roomMap = new HashMap<>();
-      for (Room room : rooms) {
-        roomMap.put(room.getName(), room);
-      }
+  public List<Room> getBoard() {
+    return Board;
+  }
 
-      // Connect the exits to the actual room objects
-      for (Room room : rooms) {
-        for (Exit exit : room.getExits()) {
-          exit.setRoom(roomMap.get(exit.getRoom().getName()));
-        }
-      }
+  private List<Room> generateRooms(){
+    ObjectMapper objectMapper = new ObjectMapper();
 
-      // Set the starting room
-      startingRoom = rooms.get(0);
-
-    } catch (IOException e) {
+    try (InputStream jsonRooms = Thread.currentThread().getContextClassLoader()
+        .getResourceAsStream("resources/room_data.json")) {
+      Board = objectMapper.readValue(jsonRooms, new TypeReference<>() {
+      });
+    } catch (Exception e) {
       e.printStackTrace();
-      System.exit(1);
+      throw new RuntimeException(e);
     }
+    return Board;
   }
 
-  public Room getStartingRoom() {
-    return startingRoom;
-  }
 }

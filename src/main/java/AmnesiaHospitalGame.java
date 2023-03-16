@@ -5,6 +5,9 @@ public class AmnesiaHospitalGame {
   private static Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) {
+
+
+
     // Print game title
     System.out.println("=== Amnesia Hospital ===");
     System.out.println();
