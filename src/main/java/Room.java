@@ -1,14 +1,13 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 public class Room {
   private String name;
   private String description;
   private List<String> items;
-  private List<Exit> exits;
+  private Map<String, String> exits;
 
-  public Room(String name, String description, List<String> items, List<Exit> exits) {
+  public Room(String name, String description, List<String> items, Map<String, String> exits) {
     this.name = name;
     this.description = description;
     this.items = items;
@@ -27,15 +26,30 @@ public class Room {
     return items;
   }
 
-  public List<Exit> getExits() {
+  public Map<String, String> getExits() {
     return exits;
   }
 
-  public void setExit(Direction direction, Room room) {
-    for (Exit exit : exits) {
-      if (exit.getDirection() == direction) {
-        exit.setRoom(room);
-        return;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public void setItems(List<String> items) {
+    this.items = items;
+  }
+
+  public void setExits(Map<String, String> exits) {
+    this.exits = exits;
+  }
+
+  public void removeItem(String itemToRemove){
+    for(String item : items){
+      if(item.equals(itemToRemove)){
+        items.remove(itemToRemove);
       }
     }
   }
