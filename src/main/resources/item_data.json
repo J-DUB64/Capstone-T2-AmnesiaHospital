@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Small Health Serum",
+    "description": "A small serum that heals you for 50 health points.",
+    "type": "health_serum",
+    "value": 50
+  }
+  // Add more items here
+]
