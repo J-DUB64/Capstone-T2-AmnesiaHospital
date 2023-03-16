@@ -1,3 +1,9 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.core.JsonParseException;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class AmnesiaHospitalGame {
@@ -6,20 +12,27 @@ public class AmnesiaHospitalGame {
 
   public static void main(String[] args) {
 
+    // Read the JSON data from the file and map it to the GameData class
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      GameData gameData = objectMapper.readValue(new File("game_data.json"), GameData.class);
 
+      // Print game title and description
+      System.out.println("=== " + gameData.getTitle() + " ===");
+      System.out.println(gameData.getDescription());
+      System.out.println();
 
-    // Print game title
-    System.out.println("=== Amnesia Hospital ===");
-    System.out.println();
-    System.out.println(
-        "Welcome to \"Amnesia Hospital,\" a horror text adventure game where you wake up in a hospital bed with no memory of who you are or how you got there.");
-    System.out.println("You soon realize that the hospital is infested with zombies, and you must navigate the hallways and rooms to survive and escape.");
-    System.out.println("As you explore the hospital, you will come across other survivors, some of whom may be helpful, while others may be hostile.");
-    System.out.println("You will need to make choices that will determine your fate and the outcome of the game.");
-    System.out.println();
+      // Print start message and prompt to start a new game
+      System.out.println(gameData.getStartMessage());
+      startGame(gameData.getPrompts());
 
-    // Start the game
-    startGame();
+    } catch (JsonParseException e) {
+      System.out.println("Error parsing JSON: " + e.getMessage());
+    } catch (JsonMappingException e) {
+      System.out.println("Error mapping JSON to object: " + e.getMessage());
+    } catch (IOException e) {
+      System.out.println("Error reading file: " + e.getMessage());
+    }
   }
 
   public static String getUserInput() {
@@ -35,7 +48,7 @@ public class AmnesiaHospitalGame {
     return input;
   }
 
-  public static void startGame() {
+  public static void startGame(List<Prompt> prompts) {
     System.out.println("Press Enter to continue...");
     getUserInput();
 
@@ -45,27 +58,31 @@ public class AmnesiaHospitalGame {
 
     while (true) {
       // Prompt the player to start a new game
-      System.out.println("Do you want to start a new game? (y/n)");
+      System.out.println(prompts.get(0).getQuestion());
+      for (Choice choice : prompts.get(0).getChoices()) {
+        System.out.println(choice.getLabel());
+      }
       String input = getUserInput();
-      if (input.equalsIgnoreCase("y")) {
+      if (input.equalsIgnoreCase("start_game")) {
         // Clear screen
         System.out.print("\033[H\033[2J");
         System.out.flush();
 
         // Print game information
-        System.out.println(
-            "You find yourself in a dark and abandoned hospital, with broken glass, overturned furniture, and bloodstains everywhere."
-                + " As you try to piece together what happened, you realize that you have amnesia and cannot remember anything about yourself or why you are here.");
-        System.out.println(
-            "To make matters worse, you hear the sound of shuffling feet and low growls coming from down the hall."
-                + " You realize that the hospital is infested with zombies, and you must navigate the hallways and rooms to survive and escape to the roof."
-                + " Your actions will determine the outcome of the game, so choose wisely.");
+        System.out.println(prompts.get(1).getQuestion());
+        for (Choice choice : prompts.get(1).getChoices()) {
+          System.out.println(choice.getLabel());
+        }
 
         // Add game logic here
 
-      } else {
-        System.out.println("Thanks for playing Amnesia Hospital. Goodbye!");
-        break;
+      } else if (input.equalsIgnoreCase("quit")) {
+        System.out.println("Are you sure you want to quit? (y/n)");
+        input = getUserInput();
+        if (input.equalsIgnoreCase("y")) {
+          System.out.println("Thanks for playing Amnesia Hospital. Goodbye!");
+          break;
+        }
       }
     }
   }
