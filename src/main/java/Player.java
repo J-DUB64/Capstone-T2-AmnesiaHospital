@@ -1,3 +1,4 @@
+import java.util.List;
 import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
@@ -7,38 +8,39 @@ public class Player {
   private int health;
   private Room currentRoom;
   private Weapon equippedWeapon;
-  private Map<String, Item> inventory;
+  private Inventory inventory;
 
   public Player(String name, Room startingRoom) {
     this.name = name;
     this.health = 100;
     this.currentRoom = startingRoom;
     this.equippedWeapon = null;
-    this.inventory = new HashMap<>();
+    this.inventory = new Inventory();
   }
 
-  public void move(Direction direction) {
-    Room nextRoom = currentRoom.getAdjacentRoom(direction);
-    if (nextRoom != null) {
-      currentRoom = nextRoom;
-      System.out.println("You have moved to " + currentRoom.getDescription());
-    } else {
-      System.out.println("You can't go that way, there's nothing there.");
+  public Room move(Direction direction, Room currentRoom) {
+    List<Room> rooms = Board.getBoard();
+    String nextRoomName = currentRoom.getExits().get(direction);
+    for(Room room: rooms){
+      if(room.getName().equals(nextRoomName)){
+        return room;
+      }
     }
+    return currentRoom;
   }
 
-  public void equipWeapon(Weapon weapon) {
-    if (inventory.containsKey(weapon.getName())) {
-      equippedWeapon = weapon;
-      System.out.println("You have equipped " + weapon.getName());
-    } else {
-      System.out.println("You don't have that weapon in your inventory.");
-    }
-  }
+//  public void equipWeapon(Weapon weapon) {
+//    if (inventory.containsKey(weapon.getName())) {
+//      equippedWeapon = weapon;
+//      System.out.println("You have equipped " + weapon.getName());
+//    } else {
+//      System.out.println("You don't have that weapon in your inventory.");
+//    }
+//  }
 
-  public void useItem(String itemName) {
-    if (inventory.containsKey(itemName)) {
-      Item item = inventory.get(itemName);
+  public void useItem(Item item) {
+    if (inventory.contains(item)) {
+//      Item item = inventory.get(item);
       item.use(this);
     } else {
       System.out.println("You don't have that item!");
@@ -47,11 +49,11 @@ public class Player {
 
 
   public void addItem(Item item) {
-    inventory.put(item.getName(), item);
+    inventory.add(item);
   }
 
-  public void removeItem(String itemName) {
-    inventory.remove(itemName);
+  public void removeItem(Item item) {
+    inventory.remove(item);
   }
 
   public void takeDamage(int damage) {
@@ -68,9 +70,9 @@ public class Player {
     System.out.println("You healed " + healthPoints + " health points. Health: " + health);
   }
 
-  public void interact(Interactable interactable) {
-    interactable.interact(this);
-  }
+//  public void interact(Interactable interactable) {
+//    interactable.interact(this);
+//  }
 
   public String getName() {
     return name;
@@ -88,7 +90,7 @@ public class Player {
     return equippedWeapon;
   }
 
-  public Map<String, Item> getInventory() {
+  public Inventory getInventory() {
     return inventory;
   }
 }

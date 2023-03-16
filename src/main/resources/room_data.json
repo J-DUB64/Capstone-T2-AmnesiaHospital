@@ -1,129 +1,187 @@
 {
   "rooms": [
     {
-      "name": "ICU Room #109",
-      "description": "You wake up on a hospital bed in a dimly lit lobby. The only thing you can hear is the sound of your own heartbeat. The room looks empty, but you see the flicker of a light down the hall.",
-      "exits": [
-        {
-          "direction": "east",
-          "room": "ICU Hallway South 5"
-        }
-      ]
-    }
-    ],
+      "name": "ICU Room 109",
+      "description": "This is the first room.",
       "items": [
-      {
-        "name": "Map",
-        "description": "A detailed map of the hospital, with highlighted areas for each department and important landmarks such as the emergency room and cafeteria. It also includes information about staff members and their roles.",
-        "effects": [
-          {
-            "type": "look",
-            "description": "You study the map closely and gain a better understanding of the hospital's layout. You can now navigate the hospital with more confidence."
-          },
-          {
-            "type": "use",
-            "description": "You consult the map to locate the nearest restroom. With its help, you find a bathroom just around the corner."
-          }
-        ]
-      },
-    {
-      "name": "ICU Hallway South 5",
-      "description": "The ICU Hallway. Broken glass, overturned tables and blood are everywhere.",
-      "exits": [
-        {
-          "direction": "west",
-          "room": "ICU Room #109"
-        },
-        {
-          "direction": "east",
-          "room": "ICU Storage"
-        },
-        {
-          "direction": "north",
-          "room": "ICU Hallway South 4"
-        }
-      ]
-    },
-    {
-      "name": "ICU Storage",
-      "description": "The storage room is a mess. Broken glass, overturned tables and blood are everywhere. You see a first-aid kit on one of the tables.",
-      "exits": [
-        {
-          "direction": "west",
-          "room": "ICU Hallway South 5"
-
-        }
+        "map",
+        "scalpel"
       ],
+      "exits": {
+        "east": "south5"
+      }
+    },
+    {
+      "name": "south5",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "ICU Room 109",
+        "east": "storage closet",
+        "north": "south4"
+      }
+    },
+    {
+      "name": "south4",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "ICU Room 107",
+        "north": "south3",
+        "south": "south5"
+      }
+    },
+    {
+      "name": "ICU Room 107",
+      "description": "ICU Room 107 room description",
+      "items": [],
+      "exits": {
+        "east": "south4"
+      }
+    },
+    {
+      "name": "south3",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "east": "ICU Room 108",
+        "north": "south2",
+        "south": "south4"
+      }
+    },
+    {
+      "name": "ICU Room 108",
+      "description": "ICU Room 108 room description",
       "items": [
-        {
-          "name": "First-Aid Kit",
-          "description": "A basic medical kit containing bandages and painkillers.",
-          "effects": [
-            {
-              "type": "healing",
-              "value": 10
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "ICU Hallway South 4",
-      "description": "The hospital corridor is quiet, but you can hear shuffling coming from the rooms. You see a door to your left and an elevator ahead.",
-      "exits": [
-        {
-          "direction": "north",
-          "room": "ICU Hallway South 3"
-        },
-        {
-          "direction": "south",
-          "room": "ICU Hallway South 5"
-        },
-        {
-          "direction": "west",
-          "room": "ICU Room #107"
-        }
-      ]
-    },
-    {
-      "name": "ICU Room #107",
-      "description": "",
-      "exits": [
-        {
-          "direction": "east",
-          "room": "ICU Hallway South 4"
-        }
+        "bed pan"
       ],
-      "items": [
-        {
-          "name": "Crowbar",
-          "description": "A sturdy metal bar that can be used as a weapon or to pry open doors.",
-          "effects": [
-            {
-              "type": "damage",
-              "value": 5
-            }
-          ]
-        }
-      ]
+      "exits": {
+        "west": "south3"
+      }
     },
     {
-      "name": "ICU Hallway South 3",
-      "description": "The stairway is dark and ominous. You can hear the sound of footsteps echoing from above.",
-      "exits": [
-        {
-          "direction": "north",
-          "room": "ICU Hallway South 2"
-        },
-        {
-          "direction": "south",
-          "room": "ICU Hallway South 4"
-        },
-        {
-          "direction": "east",
-          "room": "ICU Room #106"
-        }
-      ]
+      "name": "south2",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "ICU Room 103",
+        "north": "south1",
+        "south": "south3"
+      }
+    },
+    {
+      "name": "ICU Room 103",
+      "description": "ICU Room 103 room description",
+      "items": [
+        "scalpel"
+      ],
+      "exits": {
+        "east": "south2"
+      }
+    },
+    {
+      "name": "south1",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "north": "center",
+        "south": "south2"
+      }
+    },
+    {
+      "name": "center",
+      "description": "center of map",
+      "items": [],
+      "exits": {
+        "west": "west1",
+        "north": "north1",
+        "south": "south1",
+        "east": "east1"
+      }
+    },
+    {
+      "name": "east1",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "center",
+        "east": "east2"
+      }
+    },
+    {
+      "name": "east2",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "east1",
+        "east": "east3",
+        "south": "Quarantine Room 104"
+      }
+    },
+    {
+      "name": "Quarantine Room 104",
+      "description": "q room 104 description",
+      "items": [],
+      "exits": {
+        "north": "east2"
+      }
+    },
+    {
+      "name": "east3",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "east2",
+        "north": "Quarantine Room 105",
+        "south": "Quarantine Room 106"
+      }
+    },
+    {
+      "name": "Quarantine Room 105",
+      "description": "q room 105 description",
+      "items": [
+        "bed pan"
+      ],
+      "exits": {
+        "south": "east3"
+      }
+    },
+    {
+      "name": "Quarantine Room 106",
+      "description": "q room 106 description",
+      "items": [],
+      "exits": {
+        "north": "east3"
+      }
+    },
+    {
+      "name": "east4",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "east3",
+        "south": "Quarantine Room 108",
+        "east": "east5"
+      }
+    },
+    {
+      "name": "Quarantine Room 108",
+      "description": "q room 108 room description",
+      "items": [
+        "scalpel"
+      ],
+      "exits": {
+        "north": "east4"
+      }
+    },
+    {
+      "name": "east5",
+      "description": "hallway",
+      "items": [],
+      "exits": {
+        "west": "east4",
+        "east": "east6"
+      }
     }
   ]
 }
