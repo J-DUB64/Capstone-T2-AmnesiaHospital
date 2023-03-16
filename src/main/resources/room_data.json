@@ -1,26 +1,132 @@
 {
   "rooms": [
     {
-      "name": "Living Room",
-      "description": "A cozy living room with a fireplace.",
-      "items": ["couch", "TV", "fireplace"],
+      "name": "ICU Room #109",
+      "description": "You wake up on a hospital bed in a dimly lit lobby. The only thing you can hear is the sound of your own heartbeat. The room looks empty, but you see the flicker of a light down the hall.",
       "exits": [
         {
-          "direction": "NORTH",
-          "room": "Kitchen"
+          "direction": "east",
+          "room": "ICU Hallway South 5"
+        }
+      ]
+    }
+    ],
+      "items": [
+      {
+        "name": "Map",
+        "description": "A detailed map of the hospital, with highlighted areas for each department and important landmarks such as the emergency room and cafeteria. It also includes information about staff members and their roles.",
+        "effects": [
+          {
+            "type": "look",
+            "description": "You study the map closely and gain a better understanding of the hospital's layout. You can now navigate the hospital with more confidence."
+          },
+          {
+            "type": "use",
+            "description": "You consult the map to locate the nearest restroom. With its help, you find a bathroom just around the corner."
+          }
+        ]
+      },
+    {
+      "name": "ICU Hallway South 5",
+      "description": "The ICU Hallway. Broken glass, overturned tables and blood are everywhere.",
+      "exits": [
+        {
+          "direction": "west",
+          "room": "ICU Room #109"
+        },
+        {
+          "direction": "east",
+          "room": "ICU Storage"
+        },
+        {
+          "direction": "north",
+          "room": "ICU Hallway South 4"
         }
       ]
     },
     {
-      "name": "Kitchen",
-      "description": "A bright and fully equipped kitchen.",
-      "items": ["fridge", "stove", "sink"],
+      "name": "ICU Storage",
+      "description": "The storage room is a mess. Broken glass, overturned tables and blood are everywhere. You see a first-aid kit on one of the tables.",
       "exits": [
         {
-          "direction": "SOUTH",
-          "room": "Living Room"
+          "direction": "west",
+          "room": "ICU Hallway South 5"
+
+        }
+      ],
+      "items": [
+        {
+          "name": "First-Aid Kit",
+          "description": "A basic medical kit containing bandages and painkillers.",
+          "effects": [
+            {
+              "type": "healing",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ICU Hallway South 4",
+      "description": "The hospital corridor is quiet, but you can hear shuffling coming from the rooms. You see a door to your left and an elevator ahead.",
+      "exits": [
+        {
+          "direction": "north",
+          "room": "ICU Hallway South 3"
+        },
+        {
+          "direction": "south",
+          "room": "ICU Hallway South 5"
+        },
+        {
+          "direction": "west",
+          "room": "ICU Room #107"
+        }
+      ]
+    },
+    {
+      "name": "ICU Room #107",
+      "description": "",
+      "exits": [
+        {
+          "direction": "east",
+          "room": "ICU Hallway South 4"
+        }
+      ],
+      "items": [
+        {
+          "name": "Crowbar",
+          "description": "A sturdy metal bar that can be used as a weapon or to pry open doors.",
+          "effects": [
+            {
+              "type": "damage",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ICU Hallway South 3",
+      "description": "The stairway is dark and ominous. You can hear the sound of footsteps echoing from above.",
+      "exits": [
+        {
+          "direction": "north",
+          "room": "ICU Hallway South 2"
+        },
+        {
+          "direction": "south",
+          "room": "ICU Hallway South 4"
+        },
+        {
+          "direction": "east",
+          "room": "ICU Room #106"
         }
       ]
     }
   ]
 }
+
+
+

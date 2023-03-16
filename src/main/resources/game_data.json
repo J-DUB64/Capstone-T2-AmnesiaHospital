@@ -1,0 +1,33 @@
+{
+  "title": "Amnesia Hospital",
+  "description": "A horror text adventure game where you wake up in a hospital bed with no memory of who you are or how you got there. You soon realize that the hospital is infested with zombies, and you must navigate the hallways and rooms to survive and escape.",
+  "startMessage": "You find yourself in a dark and abandoned hospital, with broken glass, overturned furniture, and bloodstains everywhere. As you try to piece together what happened, you realize that you have amnesia and cannot remember anything about yourself or why you are here. To make matters worse, you hear the sound of shuffling feet and low growls coming from down the hall. You realize that the hospital is infested with zombies, and you must navigate the hallways and rooms to survive and escape to the roof. Your actions will determine the outcome of the game, so choose wisely.",
+  "prompts": [
+    {
+      "question": "Do you want to start a new game?",
+      "choices": [
+        {
+          "label": "Yes",
+          "action": "start_game"
+        },
+        {
+          "label": "No",
+          "action": "quit"
+        }
+      ]
+    },
+    {
+      "question": "Are you sure you want to quit?",
+      "choices": [
+        {
+          "label": "Yes",
+          "action": "exit"
+        },
+        {
+          "label": "No",
+          "action": "back"
+        }
+      ]
+    }
+  ]
+}
