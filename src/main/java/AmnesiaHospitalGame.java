@@ -1,8 +1,3 @@
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.core.JsonParseException;
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,28 +7,30 @@ public class AmnesiaHospitalGame {
 
   public static void main(String[] args) {
 
-    // Read the JSON data from the file and map it to the GameData class
-    ObjectMapper objectMapper = new ObjectMapper();
-    try {
-      GameData gameData = objectMapper.readValue(new File("game_data.json"), GameData.class);
 
-      // Print game title and description
-      System.out.println("=== " + gameData.getTitle() + " ===");
-      System.out.println(gameData.getDescription());
-      System.out.println();
+    JsonData roomData = new JsonData();
+    List<Room> rooms = roomData.getBoard();
 
-      // Print start message and prompt to start a new game
-      System.out.println(gameData.getStartMessage());
-      startGame(gameData.getPrompts());
+    JsonData dialogue = new JsonData();
+    GameData gameData = dialogue.getDialogue();
 
-    } catch (JsonParseException e) {
-      System.out.println("Error parsing JSON: " + e.getMessage());
-    } catch (JsonMappingException e) {
-      System.out.println("Error mapping JSON to object: " + e.getMessage());
-    } catch (IOException e) {
-      System.out.println("Error reading file: " + e.getMessage());
-    }
+    JsonData itemData = new JsonData();
+    List<Item> items = itemData.getItems();
+
+    // Print game title and description
+    System.out.println("=== " + gameData.getTitle() + " ===");
+    System.out.println(gameData.getDescription());
+    System.out.println();
+
+    // Print start message and prompt to start a new game
+    System.out.println(gameData.getStartMessage());
+    startGame(gameData.getPrompts());
+
+
   }
+
+
+
 
   public static String getUserInput() {
     String input = scanner.nextLine();
@@ -58,7 +55,7 @@ public class AmnesiaHospitalGame {
 
     while (true) {
       // Prompt the player to start a new game
-      System.out.println(prompts.get(0).getQuestion());
+      System.out.println("Do you want to start the game? y/n or quit");
       for (Choice choice : prompts.get(0).getChoices()) {
         System.out.println(choice.getLabel());
       }
@@ -69,6 +66,7 @@ public class AmnesiaHospitalGame {
         System.out.flush();
 
         // Print game information
+
         System.out.println(prompts.get(1).getQuestion());
         for (Choice choice : prompts.get(1).getChoices()) {
           System.out.println(choice.getLabel());

@@ -34,16 +34,16 @@ public class Item {
     return value;
   }
 
-  public void use(Player player) {
-    switch (type.toLowerCase()) {
-      case "health_serum":
-        player.heal(value);
-        System.out.println("You used " + name + " and healed " + value + " health points.");
-        break;
-      // Add more cases for different item types here
-      default:
-        System.out.println("This item cannot be used.");
-        break;
-    }
+//  public void use(Player player) {
+//    switch (type.toLowerCase()) {
+//      case "health_serum":
+//        player.heal(value);
+//        System.out.println("You used " + name + " and healed " + value + " health points.");
+//        break;
+//      // Add more cases for different item types here
+//      default:
+//        System.out.println("This item cannot be used.");
+//        break;
+//    }
   }
-}
+//}
