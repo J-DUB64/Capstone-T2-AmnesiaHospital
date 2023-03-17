@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.List;
 
 public class JsonData {
@@ -21,8 +23,9 @@ public class JsonData {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Room> roomData;
 
-    try{
-      roomData = objectMapper.readValue(new File("src/main/resources/room_data.json"), new TypeReference<List<Room>>(){});
+    //noinspection ConstantConditions
+    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("room_data.json"))){
+      roomData = objectMapper.readValue(reader, new TypeReference<List<Room>>() {});
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
@@ -36,8 +39,9 @@ public class JsonData {
   private List<Item> generateItems() {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Item> itemData;
-    try {
-      itemData = objectMapper.readValue(new File("src/main/resources/item_data.json"), new TypeReference<List<Item>>(){});
+    //noinspection ConstantConditions
+    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("item_data.json"))){
+      itemData = objectMapper.readValue(reader, new TypeReference<List<Item>>(){});
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
@@ -51,9 +55,9 @@ public class JsonData {
   private GameData generateDialogue() {
     ObjectMapper objectMapper = new ObjectMapper();
     GameData gameData = null;
-    try {
-      gameData = objectMapper.readValue(new File("src/main/resources/game_data.json"),
-          GameData.class);
+    //noinspection ConstantConditions
+    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("game_data.json"))){
+      gameData = objectMapper.readValue(reader, new TypeReference<GameData>() {});
 
     } catch (
         JsonParseException e) {
