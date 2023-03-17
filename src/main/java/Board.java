@@ -6,13 +6,14 @@ import java.io.InputStream;
 import java.util.List;
 
 public class Board {
-  List<Room> Board;
+
+  private static List<Room> Board;
 
   public Board(){
       Board = generateRooms();
   }
 
-  public List<Room> getBoard() {
+  public static List<Room> getBoard() {
     return Board;
   }
 

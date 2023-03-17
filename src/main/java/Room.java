@@ -53,8 +53,4 @@ public class Room {
       }
     }
   }
-  
-  public List<Room> getRoom() {
-    return getRoom();
-  }
 }
