@@ -1,5 +1,4 @@
-{
-  "rooms": [
+[
     {
       "name": "ICU Room 109",
       "description": "This is the first room.",
@@ -184,7 +183,6 @@
       }
     }
   ]
-}
 
 
 

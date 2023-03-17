@@ -1,18 +1,26 @@
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Room {
   private String name;
   private String description;
   private List<String> items;
   private Map<String, String> exits;
-
-  public Room(String name, String description, List<String> items, Map<String, String> exits) {
+@JsonCreator
+  public Room(@JsonProperty("name") String name,
+    @JsonProperty("description")String description,
+    @JsonProperty("items")List<String> items,
+    @JsonProperty("exits")Map<String, String> exits) {
     this.name = name;
     this.description = description;
     this.items = items;
     this.exits = exits;
   }
+
 
   public String getName() {
     return name;
