@@ -17,6 +17,8 @@ public class AmnesiaHospitalGame {
     JsonData itemData = new JsonData();
     List<Item> items = itemData.getItems();
 
+    Player mainPlayer = new Player("person", rooms.get(0));
+
     // Print game title and description
     System.out.println("=== " + gameData.getTitle() + " ===");
     System.out.println(gameData.getDescription());
@@ -24,9 +26,38 @@ public class AmnesiaHospitalGame {
 
     // Print start message and prompt to start a new game
     System.out.println(gameData.getStartMessage());
-    startGame(gameData.getPrompts());
+//    startGame(gameData.getPrompts());
 
-
+    while(true){
+      System.out.println("you are in " + mainPlayer.getCurrentRoom().getName());
+      String userInput = scanner.nextLine();
+      if(userInput.isEmpty()){
+        System.out.println("Not a valid input.");
+      }
+      else if(userInput.startsWith("go ")){
+        String direction = userInput.substring(3);
+        mainPlayer.move(direction, rooms);
+      }
+      else if(userInput.startsWith("use ")){
+        String item = userInput.substring(4);
+        mainPlayer.use(item);
+      }
+      else if(userInput.startsWith("get ")){
+        String item = userInput.substring(4);
+        mainPlayer.pickUpItem(item, items);
+      }
+      else if(userInput.startsWith("quit")){
+        System.out.println("Are you sure you want to quit? (y/n)");
+        userInput = scanner.nextLine();
+        if (userInput.equalsIgnoreCase("y")) {
+          System.out.println("Thanks for playing Amnesia Hospital. Goodbye!");
+          System.exit(0);
+        }
+      }
+      else{
+        System.out.println("that is not a valid input.");
+      }
+    }
   }
 
 

@@ -21,6 +21,14 @@
       }
     },
     {
+      "name": "storage closet",
+      "description": "a damp storage closet",
+      "items": [],
+      "exits": {
+        "west": "south5"
+      }
+    },
+    {
       "name": "south4",
       "description": "hallway",
       "items": [],

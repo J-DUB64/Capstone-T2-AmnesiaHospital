@@ -1,30 +1,77 @@
 import java.util.List;
 
 public class Player {
+
   private String name;
-  private int health;
-  private Room currentRoom;
+  private static int health;
+  private static Room currentRoom;
   private Weapon equippedWeapon;
-  private Inventory inventory;
+  private static Inventory inventory;
+
 
   public Player(String name, Room startingRoom) {
     this.name = name;
-    this.health = 100;
-    this.currentRoom = startingRoom;
+    health = 100;
+    currentRoom = startingRoom;
     this.equippedWeapon = null;
-    this.inventory = new Inventory();
+    inventory = new Inventory();
   }
 
-//  public Room move(Direction direction, Room currentRoom) {
-//    List<Room> rooms = RoomData;
-//    String nextRoomName = currentRoom.getExits().get(direction);
-//    for(Room room: rooms){
-//      if(room.getName().equals(nextRoomName)){
-//        return room;
-//      }
-//    }
-//    return currentRoom;
+  public void move(String direction, List<Room> rooms) {
+      if(currentRoom.getExits().containsKey(direction)){
+        for (Room room : rooms) {
+          if (room.getName().equals(currentRoom.getExits().get(direction))) {
+            currentRoom = room;
+            break;
+          }
+        }
+      }
+      else{
+        System.out.println("You cannot go that way.");
+    }
   }
+
+  public void use(String itemName){
+    Item item = new Item();
+    for(Item inventoryItem : inventory){
+      if(inventoryItem.getName().equals(itemName)){
+        item = inventoryItem;
+      }
+    }
+    if(inventory.contains(item)){
+      if(item.getType() == 1){
+        health = health + item.getValue();
+      }
+      else if(item.getType()==2 && currentRoom.getName().equals("north5")){
+        currentRoom.getExits().put("north", "north6");
+        System.out.println("You have opened the door with the key.");
+      }
+      else{
+        System.out.println("You use the " + item.getName() + ". It has no effect.");
+      }
+    }
+  }
+
+  public void pickUpItem(String item, List<Item> items){
+    if(currentRoom.getItems().contains(item)){
+      for(Item gameItem : items){
+        if(gameItem.getName().equals(item)){
+          System.out.println("You picked up the " + gameItem.getName());
+          inventory.add(gameItem);
+          break;
+        }
+      }
+    }
+    else{
+      System.out.println("That item is not in this room.");
+    }
+  }
+
+  public static Room getCurrentRoom() {
+    return currentRoom;
+  }
+}
+
 
 //  public void equipWeapon(Weapon weapon) {
 //    if (inventory.containsKey(weapon.getName())) {

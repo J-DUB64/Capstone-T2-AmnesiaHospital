@@ -4,18 +4,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Item {
   private String name;
   private String description;
-  private String type;
+  private int type;
   private int value;
 
   @JsonCreator
   public Item(@JsonProperty("name") String name,
       @JsonProperty("description") String description,
-      @JsonProperty("type") String type,
+      @JsonProperty("type") int type,
       @JsonProperty("value") int value) {
     this.name = name;
     this.description = description;
     this.type = type;
     this.value = value;
+  }
+
+  public Item() {
   }
 
   public String getName() {
@@ -26,7 +29,7 @@ public class Item {
     return description;
   }
 
-  public String getType() {
+  public int getType() {
     return type;
   }
 
