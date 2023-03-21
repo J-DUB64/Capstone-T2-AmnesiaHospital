@@ -1,0 +1,14 @@
+[
+  {
+    "name": "help",
+    "description": "Show available commands"
+  },
+  {
+    "name": "look",
+    "description": "Look around the current room"
+  },
+  {
+    "name": "quit",
+    "description": "Exit the game"
+  }
+]
