@@ -1,3 +1,5 @@
+package com.tlglearning.amnesiahospital.model;
+
 public class Exit {
 
   private String direction;

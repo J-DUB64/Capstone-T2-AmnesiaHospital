@@ -1,6 +1,7 @@
 [
     {
       "name": "ICU Room 109",
+      "coordinate" : "ICU Room 109",
       "description": "This is the first room.",
       "items": [
         "map",
@@ -11,7 +12,8 @@
       }
     },
     {
-      "name": "south5",
+      "name": "hospital ICU hallway",
+      "coordinate" : "south5",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -22,6 +24,7 @@
     },
     {
       "name": "storage closet",
+      "coordinate" : "storage closet",
       "description": "a damp storage closet",
       "items": [],
       "exits": {
@@ -29,7 +32,8 @@
       }
     },
     {
-      "name": "south4",
+      "name": "hospital ICU hallway",
+      "coordinate" : "south4",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -40,6 +44,7 @@
     },
     {
       "name": "ICU Room 107",
+      "coordinate" : "ICU Room 107",
       "description": "ICU Room 107 room description",
       "items": [],
       "exits": {
@@ -47,7 +52,8 @@
       }
     },
     {
-      "name": "south3",
+      "name": "hospital ICU hallway",
+      "coordinate" : "south3",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -58,6 +64,7 @@
     },
     {
       "name": "ICU Room 108",
+      "coordinate" : "ICU Room 108",
       "description": "ICU Room 108 room description",
       "items": [
         "bed pan"
@@ -67,7 +74,8 @@
       }
     },
     {
-      "name": "south2",
+      "name": "hospital ICU hallway",
+      "coordinate" : "south2",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -78,6 +86,7 @@
     },
     {
       "name": "ICU Room 103",
+      "coordinate" : "ICU Room 103",
       "description": "ICU Room 103 room description",
       "items": [
         "scalpel"
@@ -87,7 +96,8 @@
       }
     },
     {
-      "name": "south1",
+      "name": "hospital ICU hallway",
+      "coordinate" : "south1",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -97,6 +107,7 @@
     },
     {
       "name": "center",
+      "coordinate" : "center",
       "description": "center of map",
       "items": [],
       "exits": {
@@ -107,7 +118,8 @@
       }
     },
     {
-      "name": "east1",
+      "name": "hospital quarantine hallway",
+      "coordinate" : "east1",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -116,7 +128,8 @@
       }
     },
     {
-      "name": "east2",
+      "name": "hospital quarantine hallway",
+      "coordinate" : "east2",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -127,6 +140,7 @@
     },
     {
       "name": "Quarantine Room 104",
+      "coordinate" : "Quarantine Room 104",
       "description": "q room 104 description",
       "items": [],
       "exits": {
@@ -134,7 +148,8 @@
       }
     },
     {
-      "name": "east3",
+      "name": "hospital quarantine hallway",
+      "coordinate" : "east3",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -145,6 +160,7 @@
     },
     {
       "name": "Quarantine Room 105",
+      "coordinate" : "Quarantine Room 105",
       "description": "q room 105 description",
       "items": [
         "bed pan"
@@ -155,6 +171,7 @@
     },
     {
       "name": "Quarantine Room 106",
+      "coordinate" : "Quarantine Room 106",
       "description": "q room 106 description",
       "items": [],
       "exits": {
@@ -162,7 +179,8 @@
       }
     },
     {
-      "name": "east4",
+      "name": "hospital quarantine hallway",
+      "coordinate" : "east4",
       "description": "hallway",
       "items": [],
       "exits": {
@@ -173,6 +191,7 @@
     },
     {
       "name": "Quarantine Room 108",
+      "coordinate" : "Quarantine Room 108",
       "description": "q room 108 room description",
       "items": [
         "scalpel"
@@ -182,7 +201,8 @@
       }
     },
     {
-      "name": "east5",
+      "name": "hospital quarantine hallway",
+      "coordinate" : "east5",
       "description": "hallway",
       "items": [],
       "exits": {

@@ -1,26 +1,28 @@
+package com.tlglearning.amnesiahospital.model;
+
 import java.util.List;
 
 public class Player {
 
   private String name;
-  private static int health;
-  private static Room currentRoom;
+  private int health;
+  private Room currentRoom;
   private Weapon equippedWeapon;
-  private static Inventory inventory;
+  private Inventory inventory;
 
 
   public Player(String name, Room startingRoom) {
     this.name = name;
-    health = 100;
-    currentRoom = startingRoom;
+    this.health = 100;
+    this.currentRoom = startingRoom;
     this.equippedWeapon = null;
-    inventory = new Inventory();
+    this.inventory = new Inventory();
   }
 
   public void move(String direction, List<Room> rooms) {
       if(currentRoom.getExits().containsKey(direction)){
         for (Room room : rooms) {
-          if (room.getName().equals(currentRoom.getExits().get(direction))) {
+          if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
             currentRoom = room;
             break;
           }
@@ -58,6 +60,7 @@ public class Player {
         if(gameItem.getName().equals(item)){
           System.out.println("You picked up the " + gameItem.getName());
           inventory.add(gameItem);
+          currentRoom.getItems().remove(gameItem.getName());
           break;
         }
       }
@@ -67,7 +70,7 @@ public class Player {
     }
   }
 
-  public static Room getCurrentRoom() {
+  public Room getCurrentRoom() {
     return currentRoom;
   }
 }

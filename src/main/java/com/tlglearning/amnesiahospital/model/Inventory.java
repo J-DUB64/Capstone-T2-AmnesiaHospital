@@ -1,5 +1,6 @@
+package com.tlglearning.amnesiahospital.model;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Inventory extends ArrayList<Item> {
