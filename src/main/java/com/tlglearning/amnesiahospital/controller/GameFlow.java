@@ -41,9 +41,16 @@ public class GameFlow {
     else if(userInput.startsWith("look")) {
       lookAround();
     }
+
     else if(userInput.startsWith("quit")) {
       quit();
     }
+
+    else if (userInput.startsWith("examine ")) {
+      String itemName = userInput.substring(8);
+      examine(itemName);
+    }
+
     else{
       System.out.println("that is not a valid input.");
     }
@@ -106,6 +113,21 @@ public class GameFlow {
       }
     } else {
       System.out.println("There are no items in this room.");
+    }
+  }
+
+  public void examine(String itemName) {
+    boolean found = false;
+    for (Item item : items) {
+      if (item.getName().equalsIgnoreCase(itemName)) {
+        System.out.println("Item: " + item.getName());
+        System.out.println("Description: " + item.getDescription());
+        found = true;
+        break;
+      }
+    }
+    if (!found) {
+      System.out.println("Item not found.");
     }
   }
 }
