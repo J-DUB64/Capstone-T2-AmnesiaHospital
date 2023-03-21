@@ -1,3 +1,5 @@
+package com.tlglearning.amnesiahospital.model;
+
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,15 +9,21 @@ import java.util.Map;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Room {
   private String name;
+  private String coordinate;
   private String description;
   private List<String> items;
   private Map<String, String> exits;
-@JsonCreator
+
+
+
+  @JsonCreator
   public Room(@JsonProperty("name") String name,
+    @JsonProperty("coordinate") String coordinate,
     @JsonProperty("description")String description,
     @JsonProperty("items")List<String> items,
     @JsonProperty("exits")Map<String, String> exits) {
     this.name = name;
+    this.coordinate = coordinate;
     this.description = description;
     this.items = items;
     this.exits = exits;
@@ -54,11 +62,20 @@ public class Room {
     this.exits = exits;
   }
 
-  public void removeItem(String itemToRemove){
-    for(String item : items){
-      if(item.equals(itemToRemove)){
-        items.remove(itemToRemove);
-      }
-    }
+  public String getCoordinate() {
+    return coordinate;
   }
+
+  public void setCoordinate(String coordinate) {
+    this.coordinate = coordinate;
+  }
+
+//  public void removeItem(String itemToRemove){
+//    for(String item : items){
+//      if(item.equals(itemToRemove)){
+//        items.remove(itemToRemove);
+//      }
+//    }
+//  }
+
 }
