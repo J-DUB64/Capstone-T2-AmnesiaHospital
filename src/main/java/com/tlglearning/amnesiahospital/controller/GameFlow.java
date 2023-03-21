@@ -38,6 +38,9 @@ public class GameFlow {
       String item = userInput.substring(4);
       mainPlayer.pickUpItem(item, items);
     }
+    else if(userInput.startsWith("look")) {
+      lookAround();
+    }
     else if(userInput.startsWith("quit")) {
       quit();
     }
@@ -46,9 +49,6 @@ public class GameFlow {
     }
   }
 }
-
-
-
 
   public String quit() {
     String input;
@@ -87,5 +87,27 @@ public class GameFlow {
       }
     System.out.println("thank you for playing.");
     }
+
+  public void lookAround() {
+    Room currentRoom = mainPlayer.getCurrentRoom();
+    System.out.println("Current location: " + currentRoom.getName());
+    System.out.println("Description: " + currentRoom.getDescription());
+
+    System.out.println("Available exits:");
+    for (String exit : currentRoom.getExits().keySet()) {
+      System.out.println("- " + exit);
+    }
+
+    List<String> items = currentRoom.getItems();
+    if (!items.isEmpty()) {
+      System.out.println("Items in the room:");
+      for (String item : items) {
+        System.out.println("- " + item);
+      }
+    } else {
+      System.out.println("There are no items in this room.");
+    }
   }
+}
+
 
