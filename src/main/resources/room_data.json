@@ -208,9 +208,369 @@
       "exits": {
         "west": "east4",
         "east": "east6"
+        }
+      },
+     {
+      "name": "Hospital PSYCH Ward Hallway",
+      "coordinate" : "west1",
+      "description": "hallway",
+      "items": [
+      ],
+      "exits": {
+        "east": "center",
+        "west": "west2"
       }
+    },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west2",
+    "description": "hallway",
+    "items": [
+    ],
+    "exits": {
+      "east": "west1",
+      "west": "west3",
+      "north": "west2north1"
     }
-  ]
+  },
+    {
+      "name": "Hospital PSYCH Ward Hallway",
+      "coordinate": "west3",
+      "description": "A Pysch Ward hallway",
+      "items": [
+      ],
+      "exits": {
+        "north": "west3north1",
+        "east": "west2",
+        "south": "west3south1",
+        "west": "west4"
+      }
+    },
+    {
+  "name": "Hospital PSYCH Ward Hallway",
+  "coordinate": "west4",
+  "description": "A Pysch Ward hallway",
+  "items": [
+],
+  "exits": {
+  "north": "west4north1",
+  "east": "west3",
+  "south": "west4south1",
+  "west": "west5"
+}
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west5",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west5north1",
+      "east": "west4",
+      "west": "west6"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west6",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west6north1",
+      "south": "west6south1",
+      "east": "west5"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west6north1",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west6north2",
+      "south": "west6",
+      "west": "west7north1"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west6north2",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "east": "west5north2"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west5north2",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west5north3",
+      "east": "west4north2"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west4north2",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west4north3",
+      "east": "west3north2"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west3north2",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "south": "west3north1",
+      "west": "west4north2"
+    }
+  },
+  {
+    "name": "Hospital PSYCH Ward Hallway",
+    "coordinate": "west3north1",
+    "description": "A Pysch Ward hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "west3north2",
+      "south": "west3"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #103",
+    "coordinate": "west3north1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "south": "west3"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #104",
+    "coordinate": "west3south1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "north": "west3"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #106",
+    "coordinate": "west4south1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "north": "west4"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #107",
+    "coordinate": "west4north1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "south": "west4"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #113",
+    "coordinate": "west5north1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "south": "west5"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #110",
+    "coordinate": "west6south1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "north": "west6"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #114",
+    "coordinate": "west7north1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "east": "west6north1",
+      "west": "west8north1"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #666",
+    "coordinate": "west8north1",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "east": "west7north1"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #120",
+    "coordinate": "west5north3",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "south": "west5north2"
+    }
+  },
+  {
+    "name": "PSYCH ROOM #122",
+    "coordinate": "west4north3",
+    "description": "A room with padded walls",
+    "items": [
+    ],
+    "exits": {
+      "south": "west4north2"
+    }
+  },
+  {
+    "name": "Morgue Hallway",
+    "coordinate": "north1",
+    "description": "Morgue Hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "north2",
+      "south": "center"
+    }
+  },
+  {
+    "name": "Morgue Hallway",
+    "coordinate": "north2",
+    "description": "Morgue Hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "north3",
+      "south": "north",
+      "west": "north2west1"
+    }
+  },
+  {
+    "name": "Morgue Hallway",
+    "coordinate": "north3",
+    "description": "Morgue Hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "north4",
+      "south": "north2",
+      "east": "north3east1"
+    }
+  },
+  {
+    "name": "Morgue Hallway",
+    "coordinate": "north4",
+    "description": "Morgue Hallway",
+    "items": [
+    ],
+    "exits": {
+      "north": "north5",
+      "south": "north3",
+      "west": "north4west1"
+    }
+  },
+  {
+    "name": "Morgue Hallway",
+    "coordinate": "north5",
+    "description": "Morgue Hallway",
+    "items": [
+    ],
+    "exits": {
+      "south": "north4",
+      "east": "north5east1"
+    }
+  },
+  {
+    "name": "Autopsy Room",
+    "coordinate": "north2west1",
+    "description": "Room with dead bodies cut up",
+    "items": [
+    ],
+    "exits": {
+      "east": "north2"
+    }
+  },
+  {
+    "name": "Freezer",
+    "coordinate": "north3east1",
+    "description": "Frozen bodies everywhere",
+    "items": [
+    ],
+    "exits": {
+      "west": "north3"
+    }
+  },
+  {
+    "name": "Crematorium",
+    "coordinate": "north4west1",
+    "description": "Frozen bodies everywhere",
+    "items": [
+    ],
+    "exits": {
+      "east": "north4"
+    }
+  },
+  {
+    "name": "Death Locker",
+    "coordinate": "north5east1",
+    "description": "It looks like a butcher locker",
+    "items": [
+    ],
+    "exits": {
+      "west": "north5",
+      "north": "north6east1"
+    }
+  },
+  {
+    "name": "Stairs",
+    "coordinate": "north6east1",
+    "description": "It looks like a butcher locker",
+    "items": [
+    ],
+    "exits": {
+      "north": "north7east1",
+      "south": "north5east1"
+    }
+  },
+  {
+    "name": "Helicopter Pad",
+    "coordinate": "north6east1",
+    "description": "AH-64E Apache Helicopter Locked and Fucking Loaded!",
+    "items": [
+    ],
+    "exits": {
+      "south": "north6east1"
+    }
+  }
+]
 
 
 
