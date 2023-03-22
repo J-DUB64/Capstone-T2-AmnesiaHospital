@@ -51,6 +51,10 @@ public class GameFlow {
       examine(itemName);
     }
 
+    else if (userInput.equalsIgnoreCase("inventory")) {
+      mainPlayer.showInventory();
+    }
+
     else{
       System.out.println("that is not a valid input.");
     }

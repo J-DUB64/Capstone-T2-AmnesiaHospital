@@ -73,6 +73,16 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
+  public void showInventory() {
+    if (inventory.isEmpty()) {
+      System.out.println("Your inventory is empty.");
+    } else {
+      System.out.println("Your inventory contains:");
+      for (Item item : inventory) {
+        System.out.println("- " + item.getName());
+      }
+    }
+  }
 }
 
 
