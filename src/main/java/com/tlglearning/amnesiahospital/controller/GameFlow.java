@@ -51,6 +51,11 @@ public class GameFlow {
       examine(itemName);
     }
 
+    else if (userInput.startsWith("drop ")) {
+      String itemName = userInput.substring(5);
+      mainPlayer.dropItem(itemName);
+    }
+
     else if (userInput.equalsIgnoreCase("inventory")) {
       mainPlayer.showInventory();
     }
