@@ -77,7 +77,7 @@ public class Player {
         dropItem=iterItem;
       }
     }
-    if(inventory.getInventory().contains(dropItem)){
+    if(inventory.contains(dropItem)){
       for(Item inventoryItem : inventory){
         if(inventoryItem.equals(dropItem)){
           System.out.println("You dropped the " + inventoryItem.getName());
@@ -104,6 +104,14 @@ public class Player {
         System.out.println("- " + item.getName());
       }
     }
+  }
+
+  public int getHealth() {
+    return health;
+  }
+
+  public void setHealth(int health) {
+    this.health = health;
   }
 }
 

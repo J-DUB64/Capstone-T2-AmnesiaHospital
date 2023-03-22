@@ -27,6 +27,7 @@ public class Room {
     this.description = description;
     this.items = items;
     this.exits = exits;
+
   }
 
 
@@ -69,13 +70,5 @@ public class Room {
   public void setCoordinate(String coordinate) {
     this.coordinate = coordinate;
   }
-
-//  public void removeItem(String itemToRemove){
-//    for(String item : items){
-//      if(item.equals(itemToRemove)){
-//        items.remove(itemToRemove);
-//      }
-//    }
-//  }
 
 }
