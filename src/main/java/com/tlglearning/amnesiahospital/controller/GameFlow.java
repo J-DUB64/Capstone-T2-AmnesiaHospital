@@ -1,5 +1,6 @@
 package com.tlglearning.amnesiahospital.controller;
 
+import com.tlglearning.amnesiahospital.model.AsciiArt;
 import com.tlglearning.amnesiahospital.model.GameData;
 import com.tlglearning.amnesiahospital.model.GameData.Choice;
 import com.tlglearning.amnesiahospital.model.Item;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class GameFlow {
+  public static final String PRESS_ENTER = "Press Enter to continue...";
   private static Scanner scanner = new Scanner(System.in);
   JsonData jsonData = new JsonData();
   List<Room> rooms = jsonData.getBoard();
@@ -17,6 +19,7 @@ public class GameFlow {
   List<Item> items = jsonData.getItems();
 
   Player mainPlayer = new Player("person", rooms.get(0));
+
 
 
   public void userTurn(){
@@ -65,6 +68,10 @@ public class GameFlow {
     }
   }
 }
+  public static void clearScreen() {
+    System.out.print("\033[H\033[2J");
+    System.out.flush();
+  }
 
   public String quit() {
     String input;
@@ -78,13 +85,14 @@ public class GameFlow {
   }
 
   public void startGame() {
-    System.out.println("=== " + gameData.getTitle() + " ===");
+    AsciiArt.printAmnesiaHospitalTitle();
+    System.out.println(PRESS_ENTER);
+    // Wait for user to press enter
+    Scanner scanner = new Scanner(System.in);
+    scanner.nextLine();
+    clearScreen();
     System.out.println(gameData.getDescription());
     System.out.println();
-
-    // Print start message and prompt to start a new game
-    System.out.println(gameData.getStartMessage());
-    System.out.println("Press Enter to continue...");
 
     while (true) {
       // Prompt the player to start a new game
@@ -95,6 +103,7 @@ public class GameFlow {
       }
       String userInput = scanner.nextLine();
       if (userInput.equalsIgnoreCase("y")) {
+        System.out.println(gameData.getStartMessage());
         userTurn();
         break;
       } else if (userInput.equalsIgnoreCase("n")) {
