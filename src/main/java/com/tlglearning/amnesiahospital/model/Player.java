@@ -70,6 +70,28 @@ public class Player {
     }
   }
 
+  public void dropItem(String item){
+    Item dropItem = new Item();
+    for(Item iterItem : inventory){
+      if(iterItem.getName().equals(item)){
+        dropItem=iterItem;
+      }
+    }
+    if(inventory.getInventory().contains(dropItem)){
+      for(Item inventoryItem : inventory){
+        if(inventoryItem.equals(dropItem)){
+          System.out.println("You dropped the " + inventoryItem.getName());
+          inventory.remove(inventoryItem);
+          currentRoom.getItems().add(inventoryItem.getName());
+          break;
+        }
+      }
+    }
+    else{
+      System.out.println("That item is not in your inventory.");
+    }
+  }
+
   public Room getCurrentRoom() {
     return currentRoom;
   }
