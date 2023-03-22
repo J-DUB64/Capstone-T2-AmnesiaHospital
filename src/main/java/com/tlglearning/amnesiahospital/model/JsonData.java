@@ -72,5 +72,21 @@ public class JsonData {
     return gameData;
   }
 
+  public List<Command> getHelp() {
+    return generateHelp();
+  }
+  private List<Command> generateHelp() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    List<Command> helpData;
+    //noinspection ConstantConditions
+    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("command_data.json"))){
+      helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>(){});
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
+    return helpData;
+  }
+
 
 }

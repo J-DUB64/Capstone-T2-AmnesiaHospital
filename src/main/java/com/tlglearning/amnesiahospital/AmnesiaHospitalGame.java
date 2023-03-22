@@ -1,12 +1,39 @@
 package com.tlglearning.amnesiahospital;
+
 import com.tlglearning.amnesiahospital.controller.GameFlow;
+import com.tlglearning.amnesiahospital.model.AudioConfig;
+import com.tlglearning.amnesiahospital.model.MusicPlayer;
+import java.io.IOException;
+import java.net.URL;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class AmnesiaHospitalGame {
 
   public static void main(String[] args) {
-    GameFlow gameFlow = new GameFlow();
-    gameFlow.startGame();
+    ObjectMapper objectMapper = new ObjectMapper();
+    URL audioConfigURL = getResource("audio_config.json");
+
+    try {
+      AudioConfig audioConfig = objectMapper.readValue(audioConfigURL, AudioConfig.class);
+      MusicPlayer musicPlayer = new MusicPlayer();
+      URL audioFileURL = getResource(audioConfig.getBackgroundMusic());
+      musicPlayer.play(audioFileURL);
+
+      GameFlow gameFlow = new GameFlow();
+      gameFlow.startGame();
+
+      // When the game is finished or the user wants to quit, stop the music playback
+      musicPlayer.stop();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
+  private static URL getResource(String resourcePath) {
+    return AmnesiaHospitalGame.class.getClassLoader().getResource(resourcePath);
+  }
+}
+
 
 //    JsonData jsonData = new JsonData();
 //    List<Room> rooms = jsonData.getBoard();
@@ -111,4 +138,4 @@ public class AmnesiaHospitalGame {
 //      }
 //    }
 //  }
-}
+
