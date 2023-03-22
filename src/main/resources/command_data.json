@@ -10,5 +10,11 @@
   {
     "name": "quit",
     "description": "Exit the game"
-  }
+  },
+
+  { "name": "move", "description": "Move to a different room" },
+  { "name": "use", "description": "Use an item in your inventory" },
+  { "name": "inventory", "description": "Display your inventory" },
+  { "name": "help", "description": "Show a list of available commands" },
+
 ]
