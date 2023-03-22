@@ -10,6 +10,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class AmnesiaHospitalGame {
 
   public static void main(String[] args) {
+    GameFlow gameFlow = new GameFlow();
+    gameFlow.startGame();
     ObjectMapper objectMapper = new ObjectMapper();
     URL audioConfigURL = getResource("audio_config.json");
 
@@ -18,9 +20,6 @@ public class AmnesiaHospitalGame {
       MusicPlayer musicPlayer = new MusicPlayer();
       URL audioFileURL = getResource(audioConfig.getBackgroundMusic());
       musicPlayer.play(audioFileURL);
-
-      GameFlow gameFlow = new GameFlow();
-      gameFlow.startGame();
 
       // When the game is finished or the user wants to quit, stop the music playback
       musicPlayer.stop();
@@ -33,6 +32,7 @@ public class AmnesiaHospitalGame {
     return AmnesiaHospitalGame.class.getClassLoader().getResource(resourcePath);
   }
 }
+
 
 
 //    JsonData jsonData = new JsonData();

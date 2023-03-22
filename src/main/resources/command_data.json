@@ -12,11 +12,9 @@
     "description": "Exit the game"
   },
 
-    { "name": "look", "description": "Look around the room" },
-    { "name": "move", "description": "Move to a different room" },
-    { "name": "use", "description": "Use an item in your inventory" },
-    { "name": "inventory", "description": "Display your inventory" },
-    { "name": "help", "description": "Show a list of available commands" },
-    { "name": "quit", "description": "Quit the game" }
+  { "name": "move", "description": "Move to a different room" },
+  { "name": "use", "description": "Use an item in your inventory" },
+  { "name": "inventory", "description": "Display your inventory" },
+  { "name": "help", "description": "Show a list of available commands" },
 
 ]
