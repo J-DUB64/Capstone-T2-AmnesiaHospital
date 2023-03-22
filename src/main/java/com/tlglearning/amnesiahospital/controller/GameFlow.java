@@ -24,7 +24,7 @@ public class GameFlow {
 
   public void userTurn(){
     while(true){
-    System.out.println("you are in " + mainPlayer.getCurrentRoom().getName());
+    System.out.println("You are in " + mainPlayer.getCurrentRoom().getName());
     String userInput = scanner.nextLine();
     if(userInput.isEmpty()){
       System.out.println("Not a valid input.");
@@ -64,7 +64,15 @@ public class GameFlow {
     }
 
     else{
-      System.out.println("that is not a valid input.");
+      System.out.println("That is not a valid input. Your choices are:\n" +
+          "go [direction]\n" +
+          "use [item]\n" +
+          "get [item]\n" +
+          "look\n" +
+          "quit\n" +
+          "examine [item]\n" +
+          "drop [item]\n" +
+          "inventory");
     }
   }
 }
