@@ -70,12 +70,4 @@ public class Room {
     this.coordinate = coordinate;
   }
 
-//  public void removeItem(String itemToRemove){
-//    for(String item : items){
-//      if(item.equals(itemToRemove)){
-//        items.remove(itemToRemove);
-//      }
-//    }
-//  }
-
 }
