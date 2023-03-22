@@ -93,10 +93,6 @@ public class GameFlow {
     clearScreen();
     System.out.println(gameData.getDescription());
     System.out.println();
-    System.out.println(PRESS_ENTER);
-    // Wait for user to press enter
-    scanner.nextLine();
-    clearScreen();
 
     while (true) {
       // Prompt the player to start a new game
