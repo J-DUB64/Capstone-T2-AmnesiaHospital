@@ -37,22 +37,26 @@ public class Player {
   }
 }
 
-  public void use(String itemName){
+  public void use(String itemName) {
     Item item = new Item();
-    for(Item inventoryItem : inventory){
-      if(inventoryItem.getName().equals(itemName)){
+    for (Item inventoryItem : inventory) {
+      if (inventoryItem.getName().equals(itemName)) {
         item = inventoryItem;
       }
     }
-    if(inventory.contains(item)){
-      if(item.getType() == 1){
+    if (inventory.contains(item)) {
+      if (item.getType() == 1) {
         health = health + item.getValue();
-      }
-      else if(item.getType()==2 && currentRoom.getName().equals("north5")){
+      } else if (item.getType() == 2 && currentRoom.getName().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
         System.out.println("You have opened the door with the key.");
-      }
-      else{
+      } else if (item.getName().equals("map")) {
+        String[] mapArt = item.getMapArt();
+        System.out.println("You are currently in " + currentRoom.getName() + " at coordinates " + currentRoom.getCoordinate());
+        for (String line : mapArt) {
+          System.out.println(line);
+        }
+      } else {
         System.out.println("You use the " + item.getName() + ". It has no effect.");
       }
     }
