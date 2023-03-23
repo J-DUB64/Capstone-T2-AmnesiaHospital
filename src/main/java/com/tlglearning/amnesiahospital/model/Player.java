@@ -9,7 +9,6 @@ public class Player {
   private String name;
   private int health;
   private Room currentRoom;
-  private Weapon equippedWeapon;
   private Inventory inventory;
 
 
@@ -17,29 +16,26 @@ public class Player {
     this.name = name;
     this.health = 100;
     this.currentRoom = startingRoom;
-    this.equippedWeapon = null;
     this.inventory = new Inventory();
   }
 
   public void move(String direction, List<Room> rooms) {
-      if(currentRoom.getExits().containsKey(direction)){
-        for (Room room : rooms) {
-          if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
-            currentRoom = room;
-            if (currentRoom.getNPC().isEmpty()) {
-              break;
-            }
-            else {
-              System.out.println("You see someone standing in the corner");
-            }
+    if (currentRoom.getExits().containsKey(direction)) {
+      for (Room room : rooms) {
+        if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
+          currentRoom = room;
+          if (currentRoom.getNPC().isEmpty()) {
             break;
+          } else {
+            System.out.println("You see someone standing in the corner");
           }
+          break;
         }
       }
-    } else {
-      System.out.println("You cannot go that way.");
-    }
+    } else{
+    System.out.println("You cannot go that way.");
   }
+}
 
   public void use(String itemName){
     Item item = new Item();
@@ -126,7 +122,7 @@ public class Player {
     int getMissProbability = num.nextInt(100);
 
     if (getMissProbability < health) {
-      System.out.println("You hit the zombie with the " + item);
+      System.out.println("You hit the zombie with the " + item.getName());
       int playerDamage = num.nextInt(item.getValue());
       zombie.setHealth(zombie.getHealth() - playerDamage);
       System.out.println("You deal " + playerDamage + " points of damage.");

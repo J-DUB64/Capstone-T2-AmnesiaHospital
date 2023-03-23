@@ -1,5 +1,6 @@
 package com.tlglearning.amnesiahospital.controller;
 
+import com.tlglearning.amnesiahospital.model.AsciiArt;
 import com.tlglearning.amnesiahospital.model.Command;
 import com.tlglearning.amnesiahospital.model.GameData;
 import com.tlglearning.amnesiahospital.model.GameData.Choice;
@@ -8,6 +9,7 @@ import com.tlglearning.amnesiahospital.model.JsonData;
 import com.tlglearning.amnesiahospital.model.Npc;
 import com.tlglearning.amnesiahospital.model.Player;
 import com.tlglearning.amnesiahospital.model.Room;
+import com.tlglearning.amnesiahospital.model.Zombie;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,6 +22,7 @@ public class GameFlow {
   List<Npc> npcs = jsonData.getNPC();
   GameData gameData = jsonData.getDialogue();
   List<Item> items = jsonData.getItems();
+  List<Command> helpData = jsonData.getHelp();
   List<Zombie> zombies = jsonData.getZombies();
 
   Player mainPlayer = new Player("person", rooms.get(0));
@@ -46,6 +49,21 @@ public class GameFlow {
 
     else if(userInput.startsWith("look")) {
       lookAround();
+    }
+
+    else if(userInput.startsWith("fight ")){
+      String zombie = userInput.substring(6);
+      Zombie check = null;
+      for(Zombie iterZombie : zombies){
+        if(iterZombie.getName().equals(zombie)){
+          check = iterZombie;
+          combat(mainPlayer, iterZombie);
+          break;
+        }
+      }
+      if(check == null){
+        System.out.println("You cannot fight " + zombie);
+      }
     }
 
     else if(userInput.startsWith("quit")) {
@@ -81,6 +99,7 @@ public class GameFlow {
           "get [item]\n" +
           "look\n" +
           "quit\n" +
+          "fight\n" +
           "examine [item]\n" +
           "drop [item]\n" +
           "inventory");
@@ -166,6 +185,12 @@ public class GameFlow {
             break;
           }
         }
+        for(Zombie zmbObj : zombies){
+          if(zmbObj.getName().equalsIgnoreCase(npcName)){
+            System.out.println("- " + zmbObj.getName());
+            break;
+          }
+        }
       }
     }
   }
@@ -209,7 +234,6 @@ public class GameFlow {
   }
 
   public void getHelp() {
-    List<Command> helpData = JsonData.generateHelp();
     System.out.println("Available commands:");
     for (Command command : helpData) {
       System.out.println("- " + command.getName() + ": " + command.getDescription());
@@ -236,6 +260,7 @@ public class GameFlow {
           player.playerAttack(zombie, weaponChoice);
           if (zombie.getHealth() < 1) {
             System.out.println("You defeat the zombie! He disintegrates onto the floor.");
+            player.getCurrentRoom().getNPC().remove(zombie.getName());
             break;
           }
         }
@@ -244,6 +269,7 @@ public class GameFlow {
           System.out.println("The zombie lunges forward and bites you. You feel strange...");
           System.out.println("You body is changing.....");
           System.out.println("You crave...flesh...");
+          System.exit(0);
         }
       }
       if(userInput.startsWith("run")){
@@ -254,23 +280,28 @@ public class GameFlow {
           if(player.getCurrentRoom().getExits().containsKey("south")){
             System.out.println("You run south.");
             player.move("south", rooms);
+            break;
           }
           else if(player.getCurrentRoom().getExits().containsKey("west")){
             System.out.println("You run west.");
             player.move("west", rooms);
+            break;
           }
           else if(player.getCurrentRoom().getExits().containsKey("north")){
             System.out.println("You run north.");
             player.move("north", rooms);
+            break;
           }
           else{
             System.out.println("You run east.");
             player.move("east", rooms);
+            break;
           }
         }
         else{
           System.out.println("As you back away, the zombie twitches....");
-          System.out.println("You stop, unsure if he saw you try to run.");
+          System.out.println("You stop, unsure if he saw you try to run, but he lunges to attack.");
+          zombie.zombieAttack(player);
         }
       }
     }
