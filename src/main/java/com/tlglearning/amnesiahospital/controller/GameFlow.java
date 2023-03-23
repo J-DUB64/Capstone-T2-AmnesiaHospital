@@ -132,9 +132,7 @@ public class GameFlow {
     System.out.println(gameData.getDescription());
     System.out.println();
 
-    // Print start message and prompt to start a new game
-    System.out.println(gameData.getStartMessage());
-    System.out.println("Press Enter to continue...");
+
 
     while (true) {
       // Prompt the player to start a new game
