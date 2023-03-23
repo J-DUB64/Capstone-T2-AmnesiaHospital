@@ -1,5 +1,6 @@
 package com.tlglearning.amnesiahospital.controller;
 
+import com.tlglearning.amnesiahospital.model.Command;
 import com.tlglearning.amnesiahospital.model.GameData;
 import com.tlglearning.amnesiahospital.model.GameData.Choice;
 import com.tlglearning.amnesiahospital.model.Item;
@@ -17,7 +18,6 @@ public class GameFlow {
   List<Item> items = jsonData.getItems();
 
   Player mainPlayer = new Player("person", rooms.get(0));
-
 
   public void userTurn(){
     while(true){
@@ -59,9 +59,13 @@ public class GameFlow {
     else if (userInput.equalsIgnoreCase("inventory")) {
       mainPlayer.showInventory();
     }
+    else if (userInput.equalsIgnoreCase("help")) {
+      getHelp();
+    }
 
     else{
       System.out.println("That is not a valid input. Your choices are:\n" +
+          "help\n"+
           "go [direction]\n" +
           "use [item]\n" +
           "get [item]\n" +
@@ -147,6 +151,14 @@ public class GameFlow {
       System.out.println("Item not found.");
     }
   }
+  public void getHelp() {
+    List<Command> helpData = JsonData.generateHelp();
+    System.out.println("Available commands:");
+    for (Command command : helpData) {
+      System.out.println("- " + command.getName() + ": " + command.getDescription());
+    }
+  }
+
 }
 
 

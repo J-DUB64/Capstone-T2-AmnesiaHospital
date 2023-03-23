@@ -75,11 +75,11 @@ public class JsonData {
   public List<Command> getHelp() {
     return generateHelp();
   }
-  private List<Command> generateHelp() {
+  public static List<Command> generateHelp() {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Command> helpData;
     //noinspection ConstantConditions
-    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("command_data.json"))){
+    try(Reader reader = new InputStreamReader(JsonData.class.getClassLoader().getResourceAsStream("command_data.json"))){
       helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>(){});
     } catch (Exception e) {
       e.printStackTrace();

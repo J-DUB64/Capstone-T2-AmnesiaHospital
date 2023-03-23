@@ -9,12 +9,11 @@
   },
   {
     "name": "quit",
-    "description": "Exit the game"
+    "description": "Exits the game"
   },
 
-  { "name": "move", "description": "Move to a different room" },
-  { "name": "use", "description": "Use an item in your inventory" },
-  { "name": "inventory", "description": "Display your inventory" },
-  { "name": "help", "description": "Show a list of available commands" },
-
+  { "name": "Go", "description": "Move to a different room. Type: Go (direction) " },
+  { "name": "use", "description": "Use an item in your inventory. Type: use (item)" },
+  { "name": "inventory", "description": "Display whats in your inventory. Type: inventory" },
+  { "name": "Get", "description": "Get an item inside the room. Type: Get (Item)"}
 ]
