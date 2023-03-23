@@ -82,6 +82,12 @@ public class JsonData {
   }
 
 
+  public List<Npc> getNPC() {
+    return generateNPC();
+  }
+
+ private List<Npc> generateNPC() {
+ 
   private List<Npc> fromJsonFile(String jsonFilePath) {
     ObjectMapper objectMapper = new ObjectMapper();
     try {
@@ -93,20 +99,22 @@ public class JsonData {
           e);
     }
   }
-
-
-  public List<Npc> getNPC() {
-    return generateNPC();
-  }
-
-  private List<Npc> generateNPC() {
-    ObjectMapper objectMapper = new ObjectMapper();
-    List<Npc> npcData;
-    //noinspection ConstantConditions
-    try (Reader reader = new InputStreamReader(
+  
+      try (Reader reader = new InputStreamReader(
         getClass().getClassLoader().getResourceAsStream("npc_data.json"))) {
       npcData = objectMapper.readValue(reader, new TypeReference<List<Npc>>() {
       });
+
+
+
+  public static List<Command> generateHelp() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    List<Npc> npcData;
+  
+
+    try(Reader reader = new InputStreamReader(JsonData.class.getClassLoader().getResourceAsStream("command_data.json"))){
+      helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>(){});
+
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
