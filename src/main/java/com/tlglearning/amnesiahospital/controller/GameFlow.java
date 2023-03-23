@@ -5,6 +5,7 @@ import com.tlglearning.amnesiahospital.model.GameData;
 import com.tlglearning.amnesiahospital.model.GameData.Choice;
 import com.tlglearning.amnesiahospital.model.Item;
 import com.tlglearning.amnesiahospital.model.JsonData;
+import com.tlglearning.amnesiahospital.model.Npc;
 import com.tlglearning.amnesiahospital.model.Player;
 import com.tlglearning.amnesiahospital.model.Room;
 import java.util.List;
@@ -14,6 +15,7 @@ public class GameFlow {
   private static Scanner scanner = new Scanner(System.in);
   JsonData jsonData = new JsonData();
   List<Room> rooms = jsonData.getBoard();
+  List<Npc> npcs = jsonData.getNPC();
   GameData gameData = jsonData.getDialogue();
   List<Item> items = jsonData.getItems();
 
@@ -38,6 +40,7 @@ public class GameFlow {
       String item = userInput.substring(4);
       mainPlayer.pickUpItem(item, items);
     }
+
     else if(userInput.startsWith("look")) {
       lookAround();
     }
@@ -54,6 +57,10 @@ public class GameFlow {
     else if (userInput.startsWith("drop ")) {
       String itemName = userInput.substring(5);
       mainPlayer.dropItem(itemName);
+    }
+
+    else if (userInput.toLowerCase().startsWith("talk")) {
+      talk();
     }
 
     else if (userInput.equalsIgnoreCase("inventory")) {
@@ -135,6 +142,19 @@ public class GameFlow {
     } else {
       System.out.println("There are no items in this room.");
     }
+
+    List<String> npc = currentRoom.getNPC();
+    if (!npc.isEmpty()) {
+      System.out.println("People in the room:");
+      for (String npcName : npc) {
+        for (Npc npcObj : npcs) {
+          if (npcObj.getName().equalsIgnoreCase(npcName)) {
+            System.out.println("- " + npcObj.getName() + " (" + npcObj.getDescription() + ")");
+            break;
+          }
+        }
+      }
+    }
   }
 
   public void examine(String itemName) {
@@ -151,6 +171,30 @@ public class GameFlow {
       System.out.println("Item not found.");
     }
   }
+
+  public void talk() {
+    boolean found = false;
+    for (Npc npc : npcs) {
+        if (mainPlayer.getCurrentRoom().getName().equalsIgnoreCase(npc.getLocation())) {
+          System.out.println("You are talking to " + npc.getName());
+          System.out.println("Description: " + npc.getDescription());
+          System.out.println("Dialogue: ");
+          for (String line : npc.getDialogue()) {
+            System.out.println("- " + line);
+          }
+          found = true;
+          break;
+        } else {
+          System.out.println(npc.getName() + " is not in this room.");
+          found = true;
+          break;
+        }
+      }
+    if (!found) {
+      System.out.println("NPC not found.");
+    }
+  }
+
   public void getHelp() {
     List<Command> helpData = JsonData.generateHelp();
     System.out.println("Available commands:");

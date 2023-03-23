@@ -13,6 +13,7 @@ public class Room {
   private String description;
   private List<String> items;
   private Map<String, String> exits;
+  private List<String> NPC;
 
 
 
@@ -21,11 +22,13 @@ public class Room {
     @JsonProperty("coordinate") String coordinate,
     @JsonProperty("description")String description,
     @JsonProperty("items")List<String> items,
+    @JsonProperty("npc")List<String> NPC,
     @JsonProperty("exits")Map<String, String> exits) {
     this.name = name;
     this.coordinate = coordinate;
     this.description = description;
     this.items = items;
+    this.NPC = NPC;
     this.exits = exits;
 
   }
@@ -65,6 +68,14 @@ public class Room {
 
   public String getCoordinate() {
     return coordinate;
+  }
+
+  public List<String> getNPC() {
+    return NPC;
+  }
+
+  public void setNPC(List<String> NPC) {
+    this.NPC = NPC;
   }
 
   public void setCoordinate(String coordinate) {

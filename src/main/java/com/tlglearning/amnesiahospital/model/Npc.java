@@ -1,31 +1,34 @@
 package com.tlglearning.amnesiahospital.model;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Npc {
 
   private String name;
   private String location;
-  private String dialogue;
+  private List<String> dialogue;
   private String description;
 
-  public Npc() {
+  @JsonCreator public Npc(@JsonProperty("name") String name,
+      @JsonProperty("location") String location,
+      @JsonProperty("dialogue") List<String> dialogue,
+      @JsonProperty("description")String description) {
+    this.name = name;
+    this.location = location;
+    this.dialogue = dialogue;
+    this.description = description;
   }
 
-  public static List<Npc> fromJsonFile(String jsonFilePath) {
-    ObjectMapper objectMapper = new ObjectMapper();
-    try {
-      return objectMapper.readValue(new File(jsonFilePath),
-          new TypeReference<List<Npc>>() {
-          });
-    } catch (IOException e) {
-      throw new RuntimeException("Failed to read JSON file: " + jsonFilePath,
-          e);
-    }
+  public Npc() {
   }
 
   public String getName() {
@@ -44,11 +47,11 @@ public class Npc {
     this.location = location;
   }
 
-  public String getDialogue() {
+  public List<String> getDialogue() {
     return dialogue;
   }
 
-  public void setDialogue(String dialogue) {
+  public void setDialogue(List<String> dialogue) {
     this.dialogue = dialogue;
   }
 
@@ -70,3 +73,4 @@ public class Npc {
         '}';
   }
 }
+

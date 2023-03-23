@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -19,13 +20,15 @@ public class JsonData {
     return generateRooms();
   }
 
-  private List<Room> generateRooms(){
+  private List<Room> generateRooms() {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Room> roomData;
 
     //noinspection ConstantConditions
-    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("room_data.json"))){
-      roomData = objectMapper.readValue(reader, new TypeReference<List<Room>>() {});
+    try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("room_data.json"))) {
+      roomData = objectMapper.readValue(reader, new TypeReference<List<Room>>() {
+      });
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
@@ -36,12 +39,15 @@ public class JsonData {
   public List<Item> getItems() {
     return generateItems();
   }
+
   private List<Item> generateItems() {
     ObjectMapper objectMapper = new ObjectMapper();
     List<Item> itemData;
     //noinspection ConstantConditions
-    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("item_data.json"))){
-      itemData = objectMapper.readValue(reader, new TypeReference<List<Item>>(){});
+    try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("item_data.json"))) {
+      itemData = objectMapper.readValue(reader, new TypeReference<List<Item>>() {
+      });
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
@@ -49,15 +55,18 @@ public class JsonData {
     return itemData;
   }
 
-  public GameData getDialogue(){
+  public GameData getDialogue() {
     return generateDialogue();
   }
+
   private GameData generateDialogue() {
     ObjectMapper objectMapper = new ObjectMapper();
     GameData gameData = null;
     //noinspection ConstantConditions
-    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("game_data.json"))){
-      gameData = objectMapper.readValue(reader, new TypeReference<GameData>() {});
+    try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("game_data.json"))) {
+      gameData = objectMapper.readValue(reader, new TypeReference<GameData>() {
+      });
 
     } catch (
         JsonParseException e) {
@@ -72,20 +81,44 @@ public class JsonData {
     return gameData;
   }
 
-  public List<Command> getHelp() {
-    return generateHelp();
+
+  public List<Npc> getNPC() {
+    return generateNPC();
   }
+
+ private List<Npc> generateNPC() {
+ 
+  private List<Npc> fromJsonFile(String jsonFilePath) {
+    ObjectMapper objectMapper = new ObjectMapper();
+    try {
+      return objectMapper.readValue(new File(jsonFilePath),
+          new TypeReference<List<Npc>>() {
+          });
+    } catch (IOException e) {
+      throw new RuntimeException("Failed to read JSON file: " + jsonFilePath,
+          e);
+    }
+  }
+  
+      try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("npc_data.json"))) {
+      npcData = objectMapper.readValue(reader, new TypeReference<List<Npc>>() {
+      });
+
+
+
   public static List<Command> generateHelp() {
     ObjectMapper objectMapper = new ObjectMapper();
-    List<Command> helpData;
-    //noinspection ConstantConditions
+    List<Npc> npcData;
+  
+
     try(Reader reader = new InputStreamReader(JsonData.class.getClassLoader().getResourceAsStream("command_data.json"))){
       helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>(){});
+
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
     }
-    return helpData;
+    return npcData;
   }
-
 }
