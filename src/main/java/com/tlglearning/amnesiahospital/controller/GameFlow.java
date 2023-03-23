@@ -1,13 +1,13 @@
 package com.tlglearning.amnesiahospital.controller;
 
-import com.tlglearning.amnesiahospital.model.AsciiArt;
+import com.tlglearning.amnesiahospital.model.Command;
 import com.tlglearning.amnesiahospital.model.GameData;
 import com.tlglearning.amnesiahospital.model.GameData.Choice;
 import com.tlglearning.amnesiahospital.model.Item;
 import com.tlglearning.amnesiahospital.model.JsonData;
+import com.tlglearning.amnesiahospital.model.Npc;
 import com.tlglearning.amnesiahospital.model.Player;
 import com.tlglearning.amnesiahospital.model.Room;
-import com.tlglearning.amnesiahospital.model.Zombie;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -17,13 +17,12 @@ public class GameFlow {
   private static Scanner scanner = new Scanner(System.in);
   JsonData jsonData = new JsonData();
   List<Room> rooms = jsonData.getBoard();
+  List<Npc> npcs = jsonData.getNPC();
   GameData gameData = jsonData.getDialogue();
   List<Item> items = jsonData.getItems();
   List<Zombie> zombies = jsonData.getZombies();
 
   Player mainPlayer = new Player("person", rooms.get(0));
-
-
 
   public void userTurn(){
     while(true){
@@ -44,6 +43,7 @@ public class GameFlow {
       String item = userInput.substring(4);
       mainPlayer.pickUpItem(item, items);
     }
+
     else if(userInput.startsWith("look")) {
       lookAround();
     }
@@ -62,12 +62,20 @@ public class GameFlow {
       mainPlayer.dropItem(itemName);
     }
 
+    else if (userInput.toLowerCase().startsWith("talk")) {
+      talk();
+    }
+
     else if (userInput.equalsIgnoreCase("inventory")) {
       mainPlayer.showInventory();
+    }
+    else if (userInput.equalsIgnoreCase("help")) {
+      getHelp();
     }
 
     else{
       System.out.println("That is not a valid input. Your choices are:\n" +
+          "help\n"+
           "go [direction]\n" +
           "use [item]\n" +
           "get [item]\n" +
@@ -104,6 +112,10 @@ public class GameFlow {
     clearScreen();
     System.out.println(gameData.getDescription());
     System.out.println();
+
+    // Print start message and prompt to start a new game
+    System.out.println(gameData.getStartMessage());
+    System.out.println("Press Enter to continue...");
 
     while (true) {
       // Prompt the player to start a new game
@@ -143,6 +155,19 @@ public class GameFlow {
     } else {
       System.out.println("There are no items in this room.");
     }
+
+    List<String> npc = currentRoom.getNPC();
+    if (!npc.isEmpty()) {
+      System.out.println("People in the room:");
+      for (String npcName : npc) {
+        for (Npc npcObj : npcs) {
+          if (npcObj.getName().equalsIgnoreCase(npcName)) {
+            System.out.println("- " + npcObj.getName() + " (" + npcObj.getDescription() + ")");
+            break;
+          }
+        }
+      }
+    }
   }
 
   public void examine(String itemName) {
@@ -159,6 +184,38 @@ public class GameFlow {
       System.out.println("Item not found.");
     }
   }
+
+  public void talk() {
+    boolean found = false;
+    for (Npc npc : npcs) {
+        if (mainPlayer.getCurrentRoom().getName().equalsIgnoreCase(npc.getLocation())) {
+          System.out.println("You are talking to " + npc.getName());
+          System.out.println("Description: " + npc.getDescription());
+          System.out.println("Dialogue: ");
+          for (String line : npc.getDialogue()) {
+            System.out.println("- " + line);
+          }
+          found = true;
+          break;
+        } else {
+          System.out.println(npc.getName() + " is not in this room.");
+          found = true;
+          break;
+        }
+      }
+    if (!found) {
+      System.out.println("NPC not found.");
+    }
+  }
+
+  public void getHelp() {
+    List<Command> helpData = JsonData.generateHelp();
+    System.out.println("Available commands:");
+    for (Command command : helpData) {
+      System.out.println("- " + command.getName() + ": " + command.getDescription());
+    }
+  }
+
 
   public void combat(Player player, Zombie zombie){
     while(true) {
