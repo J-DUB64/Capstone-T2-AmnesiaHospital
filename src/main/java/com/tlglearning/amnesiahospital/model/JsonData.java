@@ -88,4 +88,22 @@ public class JsonData {
     return helpData;
   }
 
+  public List<Zombie> getZombies() {
+    return generateZombies();
+  }
+
+  private List<Zombie> generateZombies(){
+    ObjectMapper objectMapper = new ObjectMapper();
+    List<Zombie> zombieData;
+
+    //noinspection ConstantConditions
+    try(Reader reader = new InputStreamReader(getClass().getClassLoader().getResourceAsStream("zombie_data.json"))){
+      zombieData = objectMapper.readValue(reader, new TypeReference<List<Zombie>>() {});
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
+    return zombieData;
+  }
+
 }

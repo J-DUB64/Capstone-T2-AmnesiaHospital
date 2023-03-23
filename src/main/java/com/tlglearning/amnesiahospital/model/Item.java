@@ -8,16 +8,19 @@ public class Item {
   private String description;
   private int type;
   private int value;
+  private int durability;
 
   @JsonCreator
   public Item(@JsonProperty("name") String name,
       @JsonProperty("description") String description,
       @JsonProperty("type") int type,
-      @JsonProperty("value") int value) {
+      @JsonProperty("value") int value,
+      @JsonProperty("durability") int durability) {
     this.name = name;
     this.description = description;
     this.type = type;
     this.value = value;
+    this.durability=durability;
   }
 
   public Item() {
@@ -39,7 +42,15 @@ public class Item {
     return value;
   }
 
-//  public void use(Player player) {
+  public int getDurability() {
+    return durability;
+  }
+
+  public void setDurability(int durability) {
+    this.durability = durability;
+  }
+
+  //  public void use(Player player) {
 //    switch (type.toLowerCase()) {
 //      case "health_serum":
 //        player.heal(value);

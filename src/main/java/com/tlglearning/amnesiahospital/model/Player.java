@@ -1,6 +1,7 @@
 package com.tlglearning.amnesiahospital.model;
 
 import java.util.List;
+import java.util.Random;
 
 public class Player {
 
@@ -20,74 +21,69 @@ public class Player {
   }
 
   public void move(String direction, List<Room> rooms) {
-      if(currentRoom.getExits().containsKey(direction)){
-        for (Room room : rooms) {
-          if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
-            currentRoom = room;
-            break;
-          }
+    if (currentRoom.getExits().containsKey(direction)) {
+      for (Room room : rooms) {
+        if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
+          currentRoom = room;
+          break;
         }
       }
-      else{
-        System.out.println("You cannot go that way.");
+    } else {
+      System.out.println("You cannot go that way.");
     }
   }
 
-  public void use(String itemName){
+  public void use(String itemName) {
     Item item = new Item();
-    for(Item inventoryItem : inventory){
-      if(inventoryItem.getName().equals(itemName)){
+    for (Item inventoryItem : inventory) {
+      if (inventoryItem.getName().equals(itemName)) {
         item = inventoryItem;
       }
     }
-    if(inventory.contains(item)){
-      if(item.getType() == 1){
+    if (inventory.contains(item)) {
+      if (item.getType() == 1) {
         health = health + item.getValue();
-      }
-      else if(item.getType()==2 && currentRoom.getName().equals("north5")){
+      } else if (item.getType() == 2 && currentRoom.getName().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
         System.out.println("You have opened the door with the key.");
-      }
-      else{
+      } else {
         System.out.println("You use the " + item.getName() + ". It has no effect.");
       }
     }
   }
 
-  public void pickUpItem(String item, List<Item> items){
-    if(currentRoom.getItems().contains(item)){
-      for(Item gameItem : items){
-        if(gameItem.getName().equals(item)){
+  public void pickUpItem(String item, List<Item> items) {
+    if (currentRoom.getItems().contains(item)) {
+      for (Item gameItem : items) {
+        if (gameItem.getName().equals(item)) {
           System.out.println("You picked up the " + gameItem.getName());
           inventory.add(gameItem);
           currentRoom.getItems().remove(gameItem.getName());
           break;
         }
       }
-    }
-    else{
+    } else {
       System.out.println("That item is not in this room.");
     }
   }
 
-  public void dropItem(String item){
+  public void dropItem(String item) {
     Item dropItem = new Item();
-    for(Item iterItem : inventory){
-      if(iterItem.getName().equals(item)){
-        dropItem=iterItem;
+    for (Item iterItem : inventory) {
+      if (iterItem.getName().equals(item)) {
+        dropItem = iterItem;
       }
     }
-    if(inventory.contains(dropItem)){
-      for(Item inventoryItem : inventory){
-        if(inventoryItem.equals(dropItem)){
+    if (inventory.contains(dropItem)) {
+      for (Item inventoryItem : inventory) {
+        if (inventoryItem.equals(dropItem)) {
           System.out.println("You dropped the " + inventoryItem.getName());
           inventory.remove(inventoryItem);
           currentRoom.getItems().add(inventoryItem.getName());
           break;
         }
       }
-    }
-    else{
+    } else {
       System.out.println("That item is not in your inventory.");
     }
   }
@@ -95,6 +91,7 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
+
   public void showInventory() {
     if (inventory.isEmpty()) {
       System.out.println("Your inventory is empty.");
@@ -112,6 +109,43 @@ public class Player {
 
   public void setHealth(int health) {
     this.health = health;
+  }
+
+  public void playerAttack(Zombie zombie, Item item) {
+    Random num = new Random();
+    int getMissProbability = num.nextInt(100);
+
+    if (getMissProbability < health) {
+      System.out.println("You hit the zombie with the " + item);
+      int playerDamage = num.nextInt(item.getValue());
+      zombie.setHealth(zombie.getHealth() - playerDamage);
+      System.out.println("You deal " + playerDamage + " points of damage.");
+      item.setDurability(item.getDurability()-1);
+      if(item.getDurability()==0){
+        System.out.println("The " + item.getName() + " breaks in your hand!");
+        inventory.remove(item);
+      }
+    } else {
+      System.out.println("You attack the zombie but miss!");
+    }
+  }
+
+  public void showWeapons() {
+    Item check = null;
+    System.out.println("Weapons in your inventory: ");
+    for(Item weapon : inventory){
+      if(weapon.getType()==4){
+        check = weapon;
+        System.out.println("- " + weapon.getName());
+      }
+    }
+    if(check == null){
+      System.out.println("You have no weapons in your inventory.");
+    }
+  }
+
+  public Inventory getInventory() {
+    return inventory;
   }
 }
 

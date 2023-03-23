@@ -7,7 +7,9 @@ import com.tlglearning.amnesiahospital.model.Item;
 import com.tlglearning.amnesiahospital.model.JsonData;
 import com.tlglearning.amnesiahospital.model.Player;
 import com.tlglearning.amnesiahospital.model.Room;
+import com.tlglearning.amnesiahospital.model.Zombie;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameFlow {
@@ -17,6 +19,7 @@ public class GameFlow {
   List<Room> rooms = jsonData.getBoard();
   GameData gameData = jsonData.getDialogue();
   List<Item> items = jsonData.getItems();
+  List<Zombie> zombies = jsonData.getZombies();
 
   Player mainPlayer = new Player("person", rooms.get(0));
 
@@ -154,6 +157,65 @@ public class GameFlow {
     }
     if (!found) {
       System.out.println("Item not found.");
+    }
+  }
+
+  public void combat(Player player, Zombie zombie){
+    while(true) {
+      System.out.println("Your remaining health: " + player.getHealth());
+      player.showWeapons();
+      System.out.println("- attack with [weapon]");
+      System.out.println("- run");
+      String userInput = scanner.nextLine();
+      if (userInput.startsWith("attack with")) {
+        String choice = userInput.substring(12);
+        Item weaponChoice = null;
+        for (Item iterItem : player.getInventory()) {
+          if (iterItem.getName().equals(choice) && iterItem.getType() == 4) {
+            weaponChoice = iterItem;
+          }
+        }
+        if (weaponChoice != null) {
+          player.playerAttack(zombie, weaponChoice);
+          if (zombie.getHealth() < 1) {
+            System.out.println("You defeat the zombie! He disintegrates onto the floor.");
+            break;
+          }
+        }
+        zombie.zombieAttack(player);
+        if(player.getHealth()<1){
+          System.out.println("The zombie lunges forward and bites you. You feel strange...");
+          System.out.println("You body is changing.....");
+          System.out.println("You crave...flesh...");
+        }
+      }
+      if(userInput.startsWith("run")){
+        Random rand = new Random();
+        int odds = rand.nextInt(11);
+        if(odds>5){
+          System.out.println("You back away from the zombie, and run...");
+          if(player.getCurrentRoom().getExits().containsKey("south")){
+            System.out.println("You run south.");
+            player.move("south", rooms);
+          }
+          else if(player.getCurrentRoom().getExits().containsKey("west")){
+            System.out.println("You run west.");
+            player.move("west", rooms);
+          }
+          else if(player.getCurrentRoom().getExits().containsKey("north")){
+            System.out.println("You run north.");
+            player.move("north", rooms);
+          }
+          else{
+            System.out.println("You run east.");
+            player.move("east", rooms);
+          }
+        }
+        else{
+          System.out.println("As you back away, the zombie twitches....");
+          System.out.println("You stop, unsure if he saw you try to run.");
+        }
+      }
     }
   }
 }
