@@ -86,39 +86,57 @@ public class JsonData {
     return generateNPC();
   }
 
- private List<Npc> generateNPC() {
- 
-  private List<Npc> fromJsonFile(String jsonFilePath) {
+  private List<Npc> generateNPC() {
     ObjectMapper objectMapper = new ObjectMapper();
-    try {
-      return objectMapper.readValue(new File(jsonFilePath),
-          new TypeReference<List<Npc>>() {
-          });
-    } catch (IOException e) {
-      throw new RuntimeException("Failed to read JSON file: " + jsonFilePath,
-          e);
-    }
-  }
-  
-      try (Reader reader = new InputStreamReader(
+    List<Npc> npcData;
+    //noinspection ConstantConditions
+    try (Reader reader = new InputStreamReader(
         getClass().getClassLoader().getResourceAsStream("npc_data.json"))) {
       npcData = objectMapper.readValue(reader, new TypeReference<List<Npc>>() {
       });
-
-
-
-  public static List<Command> generateHelp() {
-    ObjectMapper objectMapper = new ObjectMapper();
-    List<Npc> npcData;
-  
-
-    try(Reader reader = new InputStreamReader(JsonData.class.getClassLoader().getResourceAsStream("command_data.json"))){
-      helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>(){});
-
     } catch (Exception e) {
       e.printStackTrace();
       throw new RuntimeException(e);
     }
     return npcData;
+  }
+
+
+  public List<Command> getHelp() {
+    return generateHelp();
+  }
+
+  private List<Command> generateHelp() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    List<Command> helpData;
+    //noinspection ConstantConditions
+    try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("command_data.json"))) {
+      helpData = objectMapper.readValue(reader, new TypeReference<List<Command>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
+    return helpData;
+  }
+
+  public List<Zombie> getZombies() {
+    return generateZombies();
+  }
+
+  private List<Zombie> generateZombies() {
+    ObjectMapper objectMapper = new ObjectMapper();
+    List<Zombie> zombieData;
+    //noinspection ConstantConditions
+    try (Reader reader = new InputStreamReader(
+        getClass().getClassLoader().getResourceAsStream("zombie_data.json"))) {
+      zombieData = objectMapper.readValue(reader, new TypeReference<List<Zombie>>() {
+      });
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
+    return zombieData;
   }
 }

@@ -3,24 +3,28 @@
     "name": "Small Health Serum",
     "description": "A small serum that heals you for 50 health points.",
     "type": 1,
-    "value": 50
+    "value": 50,
+    "durability" : 1
   },
   {
     "name": "map",
     "description": "A map",
     "type": 3,
-    "value": 0
+    "value": 0,
+    "durability" : 1
   },
   {
     "name": "scalpel",
     "description": "A small little knife",
     "type": 4,
-    "value": 4
+    "value": 10,
+    "durability" : 4
   },
   {
     "name": "bedpan",
     "description": "a pan for patient waste.",
     "type": 4,
-    "value": 5
+    "value": 12,
+    "durability" : 5
   }
 ]

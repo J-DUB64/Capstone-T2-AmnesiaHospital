@@ -2,13 +2,13 @@ package com.tlglearning.amnesiahospital.model;
 
 import java.sql.SQLOutput;
 import java.util.List;
+import java.util.Random;
 
 public class Player {
 
   private String name;
   private int health;
   private Room currentRoom;
-  private Weapon equippedWeapon;
   private Inventory inventory;
 
 
@@ -16,29 +16,26 @@ public class Player {
     this.name = name;
     this.health = 100;
     this.currentRoom = startingRoom;
-    this.equippedWeapon = null;
     this.inventory = new Inventory();
   }
 
   public void move(String direction, List<Room> rooms) {
-      if(currentRoom.getExits().containsKey(direction)){
-        for (Room room : rooms) {
-          if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
-            currentRoom = room;
-            if (currentRoom.getNPC().isEmpty()) {
-              break;
-            }
-            else {
-              System.out.println("You see someone standing in the corner");
-            }
+    if (currentRoom.getExits().containsKey(direction)) {
+      for (Room room : rooms) {
+        if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
+          currentRoom = room;
+          if (currentRoom.getNPC().isEmpty()) {
             break;
+          } else {
+            System.out.println("You see someone standing in the corner");
           }
+          break;
         }
       }
-      else{
-        System.out.println("You cannot go that way.");
-    }
+    } else{
+    System.out.println("You cannot go that way.");
   }
+}
 
   public void use(String itemName){
     Item item = new Item();
@@ -71,8 +68,7 @@ public class Player {
           break;
         }
       }
-    }
-    else{
+    } else {
       System.out.println("That item is not in this room.");
     }
   }
@@ -93,8 +89,7 @@ public class Player {
           break;
         }
       }
-    }
-    else{
+    } else {
       System.out.println("That item is not in your inventory.");
     }
   }
@@ -102,6 +97,7 @@ public class Player {
   public Room getCurrentRoom() {
     return currentRoom;
   }
+
   public void showInventory() {
     if (inventory.isEmpty()) {
       System.out.println("Your inventory is empty.");
@@ -119,6 +115,43 @@ public class Player {
 
   public void setHealth(int health) {
     this.health = health;
+  }
+
+  public void playerAttack(Zombie zombie, Item item) {
+    Random num = new Random();
+    int getMissProbability = num.nextInt(100);
+
+    if (getMissProbability < health) {
+      System.out.println("You hit the zombie with the " + item.getName());
+      int playerDamage = num.nextInt(item.getValue());
+      zombie.setHealth(zombie.getHealth() - playerDamage);
+      System.out.println("You deal " + playerDamage + " points of damage.");
+      item.setDurability(item.getDurability()-1);
+      if(item.getDurability()==0){
+        System.out.println("The " + item.getName() + " breaks in your hand!");
+        inventory.remove(item);
+      }
+    } else {
+      System.out.println("You attack the zombie but miss!");
+    }
+  }
+
+  public void showWeapons() {
+    Item check = null;
+    System.out.println("Weapons in your inventory: ");
+    for(Item weapon : inventory){
+      if(weapon.getType()==4){
+        check = weapon;
+        System.out.println("- " + weapon.getName());
+      }
+    }
+    if(check == null){
+      System.out.println("You have no weapons in your inventory.");
+    }
+  }
+
+  public Inventory getInventory() {
+    return inventory;
   }
 }
 
