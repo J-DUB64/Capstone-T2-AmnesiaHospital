@@ -1,5 +1,6 @@
 package com.tlglearning.amnesiahospital.model;
 
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Player {
@@ -24,6 +25,12 @@ public class Player {
         for (Room room : rooms) {
           if (room.getCoordinate().equals(currentRoom.getExits().get(direction))) {
             currentRoom = room;
+            if (currentRoom.getNPC().isEmpty()) {
+              break;
+            }
+            else {
+              System.out.println("You see someone standing in the corner");
+            }
             break;
           }
         }
