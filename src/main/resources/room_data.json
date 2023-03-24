@@ -132,6 +132,8 @@
       "coordinate" : "center",
       "description": "The Hospital Atrium is a large, open space with a high ceiling and dim lighting. From here, you can see the entrances to all the other wings of the hospital, each with its own ominous atmosphere and sense of danger.",
       "items": [],
+      "npc": [
+      ],
       "exits": {
         "west": "west1",
         "north": "north1",

@@ -47,9 +47,11 @@ public class Player {
     if (inventory.contains(item)) {
       if (item.getType() == 1) {
         health = health + item.getValue();
-      } else if (item.getType() == 2 && currentRoom.getName().equals("north5")) {
+      } else if (item.getType() == 2 && currentRoom.getCoordinate().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
         System.out.println("You have opened the door with the key. You can now go north.");
+        int cutLock = currentRoom.getDescription().length()-29;
+        currentRoom.setDescription(currentRoom.getDescription().substring(0,cutLock));
       } else if (item.getName().equals("map")) {
         String[] mapArt = item.getMapArt();
         System.out.println("You are currently in " + currentRoom.getName() + " at coordinates " + currentRoom.getCoordinate());
