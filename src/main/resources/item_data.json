@@ -1,7 +1,14 @@
 [
   {
     "name": "Small Health Serum",
-    "description": "A small serum that heals you for 50 health points.",
+    "description": "A small serum that heals you for 25 health points.",
+    "type": 1,
+    "value": 25,
+    "durability" : 1
+  },
+  {
+    "name": "Health Serum",
+    "description": "A serum that heals you for 50 health points.",
     "type": 1,
     "value": 50,
     "durability" : 1
