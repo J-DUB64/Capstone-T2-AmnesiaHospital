@@ -497,24 +497,14 @@
     "coordinate": "west7north1",
     "description": "A room with padded walls",
     "items": [
+      "Health Serum"
     ],
     "npc" : [
+      "Steve Perez"
     ],
     "exits": {
       "east": "west6north1",
       "west": "west8north1"
-    }
-  },
-  {
-    "name": "PSYCH ROOM #666",
-    "coordinate": "west8north1",
-    "description": "A room with padded walls",
-    "items": [
-    ],
-    "npc" : [
-    ],
-    "exits": {
-      "east": "west7north1"
     }
   },
   {
