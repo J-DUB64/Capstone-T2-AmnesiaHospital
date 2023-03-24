@@ -5,7 +5,8 @@
       "description": "You find yourself in a dimly-lit hospital ICU Room, eerily silent save for the occasional groan and shuffling of undead creatures lurking around every corner, as you cautiously make your way towards the west where you can hear the faint sounds of someone or something moving outside the ICU Room.",
       "items": [
         "map",
-        "scalpel"
+        "scalpel",
+        "key"
       ],
       "npc" : [
       ],
@@ -18,7 +19,7 @@
       "coordinate" : "south5",
       "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor. On the wall you notice a large spray painted '4'.",
       "items": [],
-      "npc" : ["small zombie"
+      "npc" : ["zombie"
       ],
       "exits": {
         "west": "ICU Room 109",
@@ -188,8 +189,7 @@
         "west": "east2",
         "east": "east4",
         "north": "Quarantine Room 105",
-        "south": "Quarantine Room 106",
-        "east": "east4"
+        "south": "Quarantine Room 106"
       }
     },
     {
@@ -496,7 +496,7 @@
     "coordinate": "west7north1",
     "description": "A room with padded walls",
     "items": [
-      "Health Serum"
+      "health serum"
     ],
     "npc" : [
       "Steve Perez"
@@ -649,7 +649,7 @@
   {
     "name": "Helicopter Pad",
     "coordinate": "north6",
-    "description": "AH-64E Apache Helicopter Locked and Fucking Loaded!",
+    "description": "AH-64E Apache Helicopter Locked and Fucking Loaded!\n-examine apache",
     "items": [
     ],
     "npc" : [

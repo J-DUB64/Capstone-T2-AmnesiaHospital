@@ -1,7 +1,7 @@
 [
   {
-    "name": "small zombie",
-    "health": 10,
+    "name": "zombie",
+    "health": 2,
     "hitPeak": 20,
     "location": "south5"
   }
