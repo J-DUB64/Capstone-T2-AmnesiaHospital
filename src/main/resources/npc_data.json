@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Angela Jackson",
+    "location": "storage closet",
+    "dialogue": [
+      "(Frantic and scared) Oh thank God, someone's there! Please, let me out!",
+      "I saw one of the doctors get attacked by zombies, and then everything went crazy. Everyone started running and screaming, and I got trapped in here. Please, you have to help me!",
+      "(Sighs) Yes, I'm afraid they did. I don't know how much time I have left.",
+      "(Grateful) Thank you so much. I don't know what I would have done without you.",
+      "(Resigned) I understand….I wouldn’t expect anything less from you!"
+    ],
+    "description": "She looks terrified. You can't help but feel like she knows who you are."
+  },
+  {
+    "name": "Antonio Ramos",
+    "location": "Quarantine Room 108",
+    "dialogue": [
+      "If we can clear the zombies from the helipad, I can get us out of here."
+    ],
+    "description": "He is a rugged man, with a scar above his left eyebrow that tells stories of his past adventures. He speaks with a confident tone and appears to be well-versed in the world of aviation. Despite the danger around him, he maintains a composed demeanor, which inspires trust in those around him."
+  },
+  {
+    "name": "Wesley Jacobs",
+    "location": "Main Entrance",
+    "dialogue": [
+      "I'll hold off the zombies as long as I can. Find supplies and help the others!"
+    ],
+    "description": "He is towering figure, with broad shoulders and a muscular build. He exudes an air of authority and a no-nonsense attitude that commands respect."
+  },
+  {
+    "name": "Steve Perez",
+    "location": "Patient Ward",
+    "dialogue":[
+      "I'm not feeling too well... Can you find something to help me?"
+    ],
+    "description": "Steve Perez is a patient trapped in the hospital, in desperate need of medical assistance."
+  }
+]
+
+
+
+
+
+
+
+
+
+
+
+//
