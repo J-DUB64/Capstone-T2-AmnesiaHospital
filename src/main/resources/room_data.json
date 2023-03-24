@@ -188,7 +188,8 @@
         "west": "east2",
         "east": "east4",
         "north": "Quarantine Room 105",
-        "south": "Quarantine Room 106"
+        "south": "Quarantine Room 106",
+        "east": "east4"
       }
     },
     {
@@ -221,6 +222,7 @@
       "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
+        "Antonio Ramos"
       ],
       "exits": {
         "west": "east3",
@@ -237,6 +239,7 @@
         "key"
       ],
       "npc" : [
+        "Antonio Ramos"
       ],
       "exits": {
         "north": "east4"

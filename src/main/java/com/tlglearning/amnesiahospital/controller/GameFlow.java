@@ -222,24 +222,34 @@ public class GameFlow {
     }
   }
 
+  private String getRandomDialogue(List<String> dialogues) {
+    Random random = new Random();
+    int index = random.nextInt(dialogues.size());
+    return dialogues.get(index);
+  }
+
   public void talk() {
     boolean found = false;
+    Room currentRoom = mainPlayer.getCurrentRoom();
+    List<String> npcNames = currentRoom.getNPC();
+
     for (Npc npc : npcs) {
-        if (mainPlayer.getCurrentRoom().getName().equalsIgnoreCase(npc.getLocation())) {
-          System.out.println("You are talking to " + npc.getName());
-          System.out.println("Description: " + npc.getDescription());
+      if (npcNames.contains(npc.getName())) {
+        System.out.println("You are talking to " + npc.getName());
+        System.out.println("Description: " + npc.getDescription());
+        if (npc.getName().equalsIgnoreCase("Antonio Ramos")) {
+          String randomDialogue = getRandomDialogue(npc.getDialogue());
+          System.out.println("Dialogue: " + randomDialogue);
+        } else {
           System.out.println("Dialogue: ");
           for (String line : npc.getDialogue()) {
             System.out.println("- " + line);
           }
-          found = true;
-          break;
-        } else {
-          System.out.println(npc.getName() + " is not in this room.");
-          found = true;
-          break;
         }
+        found = true;
+        break;
       }
+    }
     if (!found) {
       System.out.println("NPC not found.");
     }

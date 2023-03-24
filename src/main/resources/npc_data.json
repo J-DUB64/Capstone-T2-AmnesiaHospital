@@ -15,7 +15,11 @@
     "name": "Antonio Ramos",
     "location": "Quarantine Room 108",
     "dialogue": [
-      "If we can clear the zombies from the helipad, I can get us out of here."
+      "HELP ME! I have a feeling something bad is happen.",
+      "I can't remember how I got here. Please Help Me",
+      "Who are you? Can I trust you? Do you think we can trust the others? Please Let me out",
+      "This place gives me the creeps.",
+      "I wish I was an Apache helicopter Pilot"
     ],
     "description": "He is a rugged man, with a scar above his left eyebrow that tells stories of his past adventures. He speaks with a confident tone and appears to be well-versed in the world of aviation. Despite the danger around him, he maintains a composed demeanor, which inspires trust in those around him."
   },
