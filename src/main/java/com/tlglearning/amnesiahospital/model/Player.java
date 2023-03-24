@@ -47,9 +47,11 @@ public class Player {
     if (inventory.contains(item)) {
       if (item.getType() == 1) {
         health = health + item.getValue();
-      } else if (item.getType() == 2 && currentRoom.getName().equals("north5")) {
+      } else if (item.getType() == 2 && currentRoom.getCoordinate().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
-        System.out.println("You have opened the door with the key.");
+        System.out.println("You have opened the door with the key. You can now go north.");
+        int cutLock = currentRoom.getDescription().length()-29;
+        currentRoom.setDescription(currentRoom.getDescription().substring(0,cutLock));
       } else if (item.getName().equals("map")) {
         String[] mapArt = item.getMapArt();
         System.out.println("You are currently in " + currentRoom.getName() + " at coordinates " + currentRoom.getCoordinate());
@@ -113,6 +115,19 @@ public class Player {
     }
   }
 
+  public void printInventory(){
+    if(inventory == null || inventory.isEmpty()){
+      System.out.println("[]");
+    }
+    else {
+      System.out.print("[ ");
+      for (Item item : inventory) {
+        System.out.print(item.getName() + ", ");
+      }
+      System.out.println("]");
+    }
+  }
+
   public int getHealth() {
     return health;
   }
@@ -158,73 +173,4 @@ public class Player {
     return inventory;
   }
 }
-
-
-//  public void equipWeapon(Weapon weapon) {
-//    if (inventory.containsKey(weapon.getName())) {
-//      equippedWeapon = weapon;
-//      System.out.println("You have equipped " + weapon.getName());
-//    } else {
-//      System.out.println("You don't have that weapon in your inventory.");
-//    }
-//  }
-
-//  public void useItem(Item item) {
-//    if (inventory.contains(item)) {
-////      Item item = inventory.get(item);
-//      item.use(this);
-//    } else {
-//      System.out.println("You don't have that item!");
-//    }
-//  }
-//
-//
-//  public void addItem(Item item) {
-//    inventory.add(item);
-//  }
-//
-//  public void removeItem(Item item) {
-//    inventory.remove(item);
-//  }
-//
-//  public void takeDamage(int damage) {
-//    health -= damage;
-//    if (health <= 0) {
-//      System.out.println("You have died!...what a shame");
-//    } else {
-//      System.out.println("You took " + damage + " damage. Health: " + health);
-//    }
-//  }
-//
-//  public void heal(int healthPoints) {
-//    health += healthPoints;
-//    System.out.println("You healed " + healthPoints + " health points. Health: " + health);
-//  }
-//
-////  public void interact(Interactable interactable) {
-////    interactable.interact(this);
-////  }
-//
-//  public String getName() {
-//    return name;
-//  }
-//
-//  public int getHealth() {
-//    return health;
-//  }
-//
-//  public Room getCurrentRoom() {
-//    return currentRoom;
-//  }
-//
-//  public Weapon getEquippedWeapon() {
-//    return equippedWeapon;
-//  }
-//
-//  public Inventory getInventory() {
-//    return inventory;
-//  }
-//}
-//
-//
 
