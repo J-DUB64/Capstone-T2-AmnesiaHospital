@@ -177,12 +177,6 @@ public class Player {
   }
 
 
-
-
-
-
-
-
   public void giveHealingSerum(String npcName,List<Npc> npcs) {
     boolean found = false;
     for (Npc npc : npcs) {
@@ -190,7 +184,7 @@ public class Player {
         found = true;
         Item serum = null;
         for (Item item : inventory) {
-          if (item.getName().equalsIgnoreCase("healing serum")) {
+          if (item.getName().equalsIgnoreCase("health serum")) {
             serum = item;
             break;
           }
@@ -198,7 +192,7 @@ public class Player {
         if (serum != null) {
           inventory.remove(serum);
           npc.setHealed(true);
-          System.out.println("You give the healing serum to " + npc.getName() + ".");
+          System.out.println("You give the health serum to " + npc.getName() + ".");
           if (npc.getName().equals("Steve Perez")) {
             System.out.println("Thank you! Now, let's get to that helicopter on the roof!");
             List<String> healed = Arrays.asList(
