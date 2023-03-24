@@ -12,7 +12,7 @@
     "description": "Exits the game"
   },
 
-  { "name": "Go", "description": "Move to a different room. Type: Go (direction) " },
+  { "name": "Go", "description": "Move to a different room. Type: go (direction) " },
   { "name": "use", "description": "Use an item in your inventory. Type: use (item)" },
   { "name": "inventory", "description": "Display whats in your inventory. Type: inventory" },
   { "name": "Get", "description": "Get an item inside the room. Type: Get (Item)"},
