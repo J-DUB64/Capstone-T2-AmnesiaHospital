@@ -14,9 +14,9 @@
       }
     },
     {
-      "name": "hospital ICU hallway",
+      "name": "Hospital ICU Hallway",
       "coordinate" : "south5",
-      "description": "The hospital ICU hallway reeks of antiseptic and decay, its walls and floors stained with blood and littered with overturned medical equipment, while the sound of distant groans and snarls echo through the sterile corridor, reminding you that danger lurks just beyond each door",
+      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : ["small zombie"
       ],
@@ -27,9 +27,9 @@
       }
     },
     {
-      "name": "storage closet",
-      "coordinate" : "storage closet",
-      "description": "a damp storage closet",
+      "name": "Storage Closet",
+      "coordinate" : "Storage Closet",
+      "description": "The cramped and cluttered storage closet is filled with broken and rusted medical equipment. The air is thick with the stench of rotting flesh, and you hear faint groans coming from the other side of the wall.",
       "items": [
       ],
       "npc": [
@@ -40,9 +40,9 @@
       }
     },
     {
-      "name": "hospital ICU hallway",
+      "name": "Hospital ICU Hallway",
       "coordinate" : "south4",
-      "description": "hallway",
+      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : [
       ],
@@ -55,7 +55,7 @@
     {
       "name": "ICU Room 107",
       "coordinate" : "ICU Room 107",
-      "description": "ICU Room 107 room description",
+      "description": "The room is dark, with a single flickering lamp. The bed is empty, but the window is shattered, letting in a cold breeze and the stench of death.",
       "items": [],
       "npc" : [
       ],
@@ -64,9 +64,9 @@
       }
     },
     {
-      "name": "hospital ICU hallway",
+      "name": "Hospital ICU Hallway",
       "coordinate" : "south3",
-      "description": "hallway",
+      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : [
       ],
@@ -79,7 +79,7 @@
     {
       "name": "ICU Room 108",
       "coordinate" : "ICU Room 108",
-      "description": "ICU Room 108 room description",
+      "description": "The room is dimly lit, with a patient lying on the bed, their eyes lifeless and their skin rotting. The machines beep rhythmically, but their sound is drowned out by the groans of the undead.",
       "items": [
         "bed pan"
       ],
@@ -90,9 +90,9 @@
       }
     },
     {
-      "name": "hospital ICU hallway",
+      "name": "Hospital ICU Hallway",
       "coordinate" : "south2",
-      "description": "hallway",
+      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : [
       ],
@@ -105,7 +105,7 @@
     {
       "name": "ICU Room 103",
       "coordinate" : "ICU Room 103",
-      "description": "ICU Room 103 room description",
+      "description": "The room is a mess, with overturned furniture and blood smeared on the walls. The patient on the bed has turned into a zombie, and their movements are slow and jerky.",
       "items": [
         "scalpel"
       ],
@@ -116,9 +116,9 @@
       }
     },
     {
-      "name": "hospital ICU hallway",
+      "name": "Hospital ICU Hallway",
       "coordinate" : "south1",
-      "description": "hallway",
+      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : [
       ],
@@ -128,9 +128,9 @@
       }
     },
     {
-      "name": "center",
+      "name": "Hospital Atrium",
       "coordinate" : "center",
-      "description": "center of map",
+      "description": "The Hospital Atrium is a large, open space with a high ceiling and dim lighting. From here, you can see the entrances to all the other wings of the hospital, each with its own ominous atmosphere and sense of danger.",
       "items": [],
       "exits": {
         "west": "west1",
@@ -140,9 +140,9 @@
       }
     },
     {
-      "name": "hospital quarantine hallway",
+      "name": "Hospital Quarantine Hallway",
       "coordinate" : "east1",
-      "description": "hallway",
+      "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
       ],
@@ -152,9 +152,9 @@
       }
     },
     {
-      "name": "hospital quarantine hallway",
+      "name": "Hospital Quarantine Hallway",
       "coordinate" : "east2",
-      "description": "hallway",
+      "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
       ],
@@ -167,7 +167,7 @@
     {
       "name": "Quarantine Room 104",
       "coordinate" : "Quarantine Room 104",
-      "description": "q room 104 description",
+      "description": "The room is dimly lit, with a single bed and a broken window. The undead patient on the bed is chained, but their moans suggest that they are about to break free.",
       "items": [],
       "npc" : [
       ],
@@ -176,9 +176,9 @@
       }
     },
     {
-      "name": "hospital quarantine hallway",
+      "name": "Hospital Quarantine Hallway",
       "coordinate" : "east3",
-      "description": "hallway",
+      "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
       ],
@@ -191,7 +191,7 @@
     {
       "name": "Quarantine Room 105",
       "coordinate" : "Quarantine Room 105",
-      "description": "q room 105 description",
+      "description": "The room is empty, except for a single chair and a small table. The walls are stained with blood, and the air is thick with the smell of death.",
       "items": [
         "bed pan"
       ],
@@ -204,7 +204,7 @@
     {
       "name": "Quarantine Room 106",
       "coordinate" : "Quarantine Room 106",
-      "description": "q room 106 description",
+      "description": "The room is dark, with only a flickering lamp providing dim light. The patient on the bed has turned into a zombie, their movements slow and jerky",
       "items": [],
       "npc" : [
       ],
@@ -213,9 +213,9 @@
       }
     },
     {
-      "name": "hospital quarantine hallway",
+      "name": "Hospital Quarantine Hallway",
       "coordinate" : "east4",
-      "description": "hallway",
+      "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
       ],
@@ -228,7 +228,7 @@
     {
       "name": "Quarantine Room 108",
       "coordinate" : "Quarantine Room 108",
-      "description": "q room 108 room description",
+      "description": "The room is cold and sterile, with machines beeping rhythmically in the background. The undead patient on the bed is chained, but their growls suggest they are about to break free.",
       "items": [
         "scalpel"
       ],
@@ -239,9 +239,9 @@
       }
     },
     {
-      "name": "hospital quarantine hallway",
+      "name": "Hospital Quarantine Hallway",
       "coordinate" : "east5",
-      "description": "hallway",
+      "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
       ],
@@ -253,7 +253,7 @@
      {
       "name": "Hospital PSYCH Ward Hallway",
       "coordinate" : "west1",
-      "description": "hallway",
+      "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
       "items": [
       ],
        "npc" : [
@@ -266,7 +266,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west2",
-    "description": "hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -280,7 +280,7 @@
     {
       "name": "Hospital PSYCH Ward Hallway",
       "coordinate": "west3",
-      "description": "A Pysch Ward hallway",
+      "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
       "items": [
       ],
       "npc" : [
@@ -295,7 +295,7 @@
     {
   "name": "Hospital PSYCH Ward Hallway",
   "coordinate": "west4",
-  "description": "A Pysch Ward hallway",
+  "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
   "items": [
   ],
       "npc" : [
@@ -310,7 +310,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west5",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -324,7 +324,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west6",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -338,7 +338,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west6north1",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -352,7 +352,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west6north2",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -364,7 +364,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west5north2",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -377,7 +377,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west4north2",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -390,7 +390,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west3north2",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -403,7 +403,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west3north1",
-    "description": "A Pysch Ward hallway",
+    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
     "items": [
     ],
     "npc" : [
@@ -416,7 +416,7 @@
   {
     "name": "PSYCH ROOM #103",
     "coordinate": "west3north1",
-    "description": "A room with padded walls",
+    "description": "The room is empty, except for a single bed and a broken window. The walls are smeared with blood, and the air is thick with the stench of rotting flesh.",
     "items": [
     ],
     "npc" : [
@@ -428,7 +428,7 @@
   {
     "name": "PSYCH ROOM #104",
     "coordinate": "west3south1",
-    "description": "A room with padded walls",
+    "description": "The room is cramped, with barely enough space for the bed and a small table. The patient on the bed has turned into a zombie, their movements slow and jerky.",
     "items": [
     ],
     "npc" : [
@@ -440,7 +440,7 @@
   {
     "name": "PSYCH ROOM #106",
     "coordinate": "west4south1",
-    "description": "A room with padded walls",
+    "description": "The room is dark, with only a flickering lamp providing dim light. The patient on the bed has turned into a zombie, their movements slow and jerky.",
     "items": [
     ],
     "npc" : [
@@ -452,7 +452,7 @@
   {
     "name": "PSYCH ROOM #107",
     "coordinate": "west4north1",
-    "description": "A room with padded walls",
+    "description": "The room is cold and sterile, with a single window high on the wall. The undead patient on the bed is chained, but their growls suggest that something is lurking nearby.",
     "items": [
     ],
     "npc" : [
