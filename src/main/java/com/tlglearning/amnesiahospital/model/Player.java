@@ -1,6 +1,7 @@
 package com.tlglearning.amnesiahospital.model;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ public class Player {
   private int health;
   private Room currentRoom;
   private Inventory inventory;
+  private boolean foundPilot;
 
 
   public Player(String name, Room startingRoom) {
@@ -17,6 +19,7 @@ public class Player {
     this.health = 100;
     this.currentRoom = startingRoom;
     this.inventory = new Inventory();
+    this.foundPilot = false;
   }
 
   public void move(String direction, List<Room> rooms) {
@@ -172,6 +175,48 @@ public class Player {
 
   public Inventory getInventory() {
     return inventory;
+  }
+
+
+
+
+
+
+
+
+  public void giveHealingSerum(String npcName,List<Npc> npcs) {
+    boolean found = false;
+    for (Npc npc : npcs) {
+      if (npc.getName().equalsIgnoreCase(npcName)) {
+        found = true;
+        Item serum = null;
+        for (Item item : inventory) {
+          if (item.getName().equalsIgnoreCase("healing serum")) {
+            serum = item;
+            break;
+          }
+        }
+        if (serum != null) {
+          inventory.remove(serum);
+          npc.setHealed(true);
+          System.out.println("You give the healing serum to " + npc.getName() + ".");
+          if (npc.getName().equals("Steve Perez")) {
+            System.out.println("Thank you! Now, let's get to that helicopter on the roof!");
+            List<String> healed = Arrays.asList(
+                "Thank you! Now, let's get to that helicopter on the roof!");
+            npc.setDialogue(healed);
+            foundPilot = true;
+          }
+
+        } else {
+          System.out.println("You don't have a healing serum in your inventory.");
+        }
+        break;
+      }
+    }
+    if (!found) {
+      System.out.println("NPC not found.");
+    }
   }
 }
 
