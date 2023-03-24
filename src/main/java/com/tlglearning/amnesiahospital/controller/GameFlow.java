@@ -27,9 +27,14 @@ public class GameFlow {
 
   Player mainPlayer = new Player("person", rooms.get(0));
 
+
   public void userTurn(){
     while(true){
+      System.out.println("----------Current Status----------");
     System.out.println("You are in " + mainPlayer.getCurrentRoom().getName());
+      System.out.println("Current Health: " + mainPlayer.getHealth());
+      mainPlayer.printInventory();
+
     String userInput = scanner.nextLine();
     if(userInput.isEmpty()){
       System.out.println("Not a valid input.");
@@ -49,20 +54,26 @@ public class GameFlow {
 
     else if(userInput.startsWith("look")) {
       lookAround();
+      for(Zombie iterZombie : zombies){
+        if(iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())){
+          System.out.println("The person you see is a zombie! They lunge forward to attack you!");
+          combat(mainPlayer, iterZombie);
+          break;
+        }
+      }
     }
 
-    else if(userInput.startsWith("fight ")){
-      String zombie = userInput.substring(6);
+    else if(userInput.startsWith("fight")){
       Zombie check = null;
       for(Zombie iterZombie : zombies){
-        if(iterZombie.getName().equals(zombie)){
+        if(iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())){
           check = iterZombie;
           combat(mainPlayer, iterZombie);
           break;
         }
       }
       if(check == null){
-        System.out.println("You cannot fight " + zombie);
+        System.out.println("You cannot fight anything here.");
       }
     }
 
@@ -199,6 +210,9 @@ public class GameFlow {
       if (item.getName().equalsIgnoreCase(itemName)) {
         System.out.println("Item: " + item.getName());
         System.out.println("Description: " + item.getDescription());
+        if(item.getType()==4){
+          System.out.println("Hits remaining: " + item.getDurability());
+        }
         found = true;
         break;
       }
@@ -242,7 +256,9 @@ public class GameFlow {
   public void combat(Player player, Zombie zombie){
     while(true) {
       System.out.println("Your remaining health: " + player.getHealth());
+      System.out.println("Zombie remaining health: " + zombie.getHealth());
       player.showWeapons();
+      System.out.println("Commands:");
       System.out.println("- attack with [weapon]");
       System.out.println("- run");
       String userInput = scanner.nextLine();
