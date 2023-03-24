@@ -102,6 +102,27 @@ public class GameFlow {
       getHelp();
     }
 
+
+
+    else if (userInput.startsWith("give ")) {
+      String itemAndNpc = userInput.substring(5);
+      int toIndex = itemAndNpc.indexOf(" to ");
+      if (toIndex == -1) {
+        System.out.println("Invalid input. Use the format 'give [item] to [NPC]'.");
+      } else {
+        String itemName = itemAndNpc.substring(0, toIndex).trim();
+        String npcName = itemAndNpc.substring(toIndex + 4).trim();
+        if (itemName.equalsIgnoreCase("healing serum")) {
+          mainPlayer.giveHealingSerum(npcName,npcs);
+        } else {
+          System.out.println("You can only give healing serum to NPCs.");
+        }
+      }
+    }
+
+
+
+
     else{
       System.out.println("That is not a valid input. Your choices are:\n" +
           "help\n"+

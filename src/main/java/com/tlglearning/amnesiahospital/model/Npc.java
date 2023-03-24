@@ -72,5 +72,15 @@ public class Npc {
         ", description='" + description + '\'' +
         '}';
   }
+  private boolean healed;
+
+  public boolean isHealed() {
+    return healed;
+  }
+
+  public void setHealed(boolean healed) {
+    this.healed = healed;
+  }
+
 }
 
