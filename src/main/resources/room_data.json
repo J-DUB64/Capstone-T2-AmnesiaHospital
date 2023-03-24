@@ -28,7 +28,7 @@
     },
     {
       "name": "Storage Closet",
-      "coordinate" : "Storage Closet",
+      "coordinate" : "storage closet",
       "description": "The cramped and cluttered storage closet is filled with broken and rusted medical equipment. The air is thick with the stench of rotting flesh, and you hear faint groans coming from the other side of the wall.",
       "items": [
       ],
@@ -132,6 +132,7 @@
       "coordinate" : "center",
       "description": "The Hospital Atrium is a large, open space with a high ceiling and dim lighting. From here, you can see the entrances to all the other wings of the hospital, each with its own ominous atmosphere and sense of danger.",
       "items": [],
+      "npc": [],
       "exits": {
         "west": "west1",
         "north": "north1",
@@ -185,7 +186,8 @@
       "exits": {
         "west": "east2",
         "north": "Quarantine Room 105",
-        "south": "Quarantine Room 106"
+        "south": "Quarantine Room 106",
+        "east": "east4"
       }
     },
     {
@@ -218,6 +220,7 @@
       "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
+        "Antonio Ramos"
       ],
       "exits": {
         "west": "east3",
@@ -233,6 +236,7 @@
         "scalpel"
       ],
       "npc" : [
+        "Antonio Ramos"
       ],
       "exits": {
         "north": "east4"
