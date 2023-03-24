@@ -47,6 +47,7 @@ public class Player {
     if (inventory.contains(item)) {
       if (item.getType() == 1) {
         health = health + item.getValue();
+        inventory.remove(item);
       } else if (item.getType() == 2 && currentRoom.getCoordinate().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
         System.out.println("You have opened the door with the key. You can now go north.");

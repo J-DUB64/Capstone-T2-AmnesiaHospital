@@ -5,7 +5,8 @@
       "description": "You find yourself in a dimly-lit hospital ICU Room, eerily silent save for the occasional groan and shuffling of undead creatures lurking around every corner, as you cautiously make your way towards the west where you can hear the faint sounds of someone or something moving outside the ICU Room.",
       "items": [
         "map",
-        "scalpel"
+        "scalpel",
+        "key"
       ],
       "npc" : [
       ],
@@ -659,7 +660,7 @@
   {
     "name": "Helicopter Pad",
     "coordinate": "north6",
-    "description": "AH-64E Apache Helicopter Locked and Fucking Loaded!",
+    "description": "AH-64E Apache Helicopter Locked and Fucking Loaded!\n-examine apache",
     "items": [
     ],
     "npc" : [

@@ -217,9 +217,14 @@ public class GameFlow {
         break;
       }
     }
-    if (!found) {
+    if(mainPlayer.getCurrentRoom().getCoordinate().equals("north6") && itemName.equals("apache")){
+      System.out.println("You approach the impressive machine, but on the door you see a small combination lock.");
+      comboLock();
+    }
+    else if(!found){
       System.out.println("Item not found.");
     }
+
   }
 
   private String getRandomDialogue(List<String> dialogues) {
@@ -228,30 +233,60 @@ public class GameFlow {
     return dialogues.get(index);
   }
 
+  private void comboLock(){
+    System.out.println("There are four number dials and above each someone has scratched in:");
+    System.out.println("[W] [N] [E] [S]");
+    String userInput = scanner.nextLine();
+    if(userInput.equals("3984")){
+//      if(pioltFound.equals(true)){
+        System.out.println("As you undo the lock, the pilot runs up and tells you to hop in. The helicopter starts up and lifts into the sky.");
+        System.out.println("You have done it....You have made it out of AMNESIA HOSPITAL!");
+        scanner.nextLine();
+        quit();
+//      }
+//      else{
+//        System.out.println("You sheepishly climb into the cockpit.  This might be a bad idea...");
+//        System.out.println("As the blades start to spin you pray that you used to be a pilot before you lost your memory.");
+//        System.out.println("You pull back on the stick and immediately realize you are in trouble.");
+//        System.out.println("You clear the roof top but start to plummet to the earth....if only there was a pilot in that hospital....");
+//        scanner.nextLine();
+//        quit();
+//      }
+    }
+    else{
+      System.out.println("You put " + userInput + " into the lock but it isn't opening.");
+    }
+  }
+
   public void talk() {
     boolean found = false;
     Room currentRoom = mainPlayer.getCurrentRoom();
     List<String> npcNames = currentRoom.getNPC();
 
-    for (Npc npc : npcs) {
-      if (npcNames.contains(npc.getName())) {
-        System.out.println("You are talking to " + npc.getName());
-        System.out.println("Description: " + npc.getDescription());
-        if (npc.getName().equalsIgnoreCase("Antonio Ramos")) {
-          String randomDialogue = getRandomDialogue(npc.getDialogue());
-          System.out.println("Dialogue: " + randomDialogue);
-        } else {
-          System.out.println("Dialogue: ");
-          for (String line : npc.getDialogue()) {
-            System.out.println("- " + line);
-          }
-        }
-        found = true;
-        break;
-      }
+    if(npcNames.contains("zombie")){
+      System.out.println("GRaaaAAAAaaa MMMMuuuuunnnngghhhhhh");
     }
-    if (!found) {
-      System.out.println("NPC not found.");
+    else {
+      for (Npc npc : npcs) {
+        if (npcNames.contains(npc.getName())) {
+          System.out.println("You are talking to " + npc.getName());
+          System.out.println("Description: " + npc.getDescription());
+          if (npc.getName().equalsIgnoreCase("Antonio Ramos")) {
+            String randomDialogue = getRandomDialogue(npc.getDialogue());
+            System.out.println("Dialogue: " + randomDialogue);
+          } else {
+            System.out.println("Dialogue: ");
+            for (String line : npc.getDialogue()) {
+              System.out.println("- " + line);
+            }
+          }
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        System.out.println("NPC not found.");
+      }
     }
   }
 
@@ -293,6 +328,8 @@ public class GameFlow {
           System.out.println("The zombie lunges forward and bites you. You feel strange...");
           System.out.println("You body is changing.....");
           System.out.println("You crave...flesh...");
+          System.out.println("You are now a permanent patient of AMNESIA HOSPITAL!");
+          scanner.nextLine();
           System.exit(0);
         }
       }
