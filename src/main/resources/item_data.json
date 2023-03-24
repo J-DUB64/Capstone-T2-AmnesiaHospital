@@ -74,5 +74,12 @@
     "type": 4,
     "value": 12,
     "durability" : 5
+  },
+  {
+    "name": "key",
+    "description": "A key labeled with a tag that says 'helipad key'.",
+    "type": 2,
+    "value": 1,
+    "durability": 1
   }
 ]
