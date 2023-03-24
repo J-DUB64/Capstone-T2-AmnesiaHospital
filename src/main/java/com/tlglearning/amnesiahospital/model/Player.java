@@ -177,35 +177,32 @@ public class Player {
     return inventory;
   }
 
+  public boolean isFoundPilot() {
+    return foundPilot;
+  }
 
-  public void giveHealingSerum(String npcName,List<Npc> npcs) {
+  public void giveHealingSerum(List<Npc> npcs) {
     boolean found = false;
     for (Npc npc : npcs) {
-      if (npc.getName().equalsIgnoreCase(npcName)) {
+      if (currentRoom.getNPC().contains(npc.getName())) {
         found = true;
         Item serum = null;
         for (Item item : inventory) {
           if (item.getName().equalsIgnoreCase("health serum")) {
             serum = item;
+            inventory.remove(serum);
+            npc.setHealed(true);
+            System.out.println("You give the health serum to " + npc.getName() + ".");
+            if (npc.getName().equals("Steve Perez")) {
+              System.out.println("Thank you! Now, let's get to that helicopter on the roof!");
+              List<String> healed = List.of(
+                  "Thank you! Now, let's get to that helicopter on the roof!");
+              npc.setDialogue(healed);
+              foundPilot = true;
+            }
             break;
           }
         }
-        if (serum != null) {
-          inventory.remove(serum);
-          npc.setHealed(true);
-          System.out.println("You give the health serum to " + npc.getName() + ".");
-          if (npc.getName().equals("Steve Perez")) {
-            System.out.println("Thank you! Now, let's get to that helicopter on the roof!");
-            List<String> healed = Arrays.asList(
-                "Thank you! Now, let's get to that helicopter on the roof!");
-            npc.setDialogue(healed);
-            foundPilot = true;
-          }
-
-        } else {
-          System.out.println("You don't have a healing serum in your inventory.");
-        }
-        break;
       }
     }
     if (!found) {
