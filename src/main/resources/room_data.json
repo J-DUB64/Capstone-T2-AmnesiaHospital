@@ -5,8 +5,7 @@
       "description": "You find yourself in a dimly-lit hospital ICU Room, eerily silent save for the occasional groan and shuffling of undead creatures lurking around every corner, as you cautiously make your way towards the west where you can hear the faint sounds of someone or something moving outside the ICU Room.",
       "items": [
         "map",
-        "scalpel",
-        "key"
+        "scalpel"
       ],
       "npc" : [
       ],
@@ -19,7 +18,8 @@
       "coordinate" : "south5",
       "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor. On the wall you notice a large spray painted '4'.",
       "items": [],
-      "npc" : ["zombie"
+      "npc" : [
+        "zombie"
       ],
       "exits": {
         "west": "ICU Room 109",
@@ -32,6 +32,7 @@
       "coordinate" : "storage closet",
       "description": "The cramped and cluttered storage closet is filled with broken and rusted medical equipment. The air is thick with the stench of rotting flesh, and you hear faint groans coming from the other side of the wall.",
       "items": [
+        "health serum"
       ],
       "npc": [
         "Angela Jackson"
@@ -67,7 +68,7 @@
     {
       "name": "Hospital ICU Hallway",
       "coordinate" : "south3",
-      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
+      "description": "The corridor remains eerily quiet, save for the faint shuffle of footsteps and moans that echo from the surrounding rooms. Blood stains smear the walls, while discarded medical instruments are scattered across the floor.",
       "items": [],
       "npc" : [
       ],
@@ -93,7 +94,7 @@
     {
       "name": "Hospital ICU Hallway",
       "coordinate" : "south2",
-      "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
+      "description": "The corridor remains eerily quiet, save for the faint shuffle of footsteps and moans that echo from the surrounding rooms. Blood stains smear the walls, while discarded medical instruments are scattered across the floor.",
       "items": [],
       "npc" : [
       ],
@@ -111,6 +112,7 @@
         "scalpel"
       ],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "east": "south2"
@@ -122,6 +124,7 @@
       "description": "The hallway is silent, except for the sound of shuffling feet and moaning coming from the rooms. The walls are smeared with blood, and broken medical equipment litters the floor.",
       "items": [],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "north": "center",
@@ -160,6 +163,7 @@
       "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "west": "east1",
@@ -171,8 +175,11 @@
       "name": "Quarantine Room 104",
       "coordinate" : "Quarantine Room 104",
       "description": "The room is dimly lit, with a single bed and a broken window. The undead patient on the bed is chained, but their moans suggest that they are about to break free.",
-      "items": [],
+      "items": [
+        "crowbar"
+      ],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "north": "east2"
@@ -184,6 +191,7 @@
       "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan.",
       "items": [],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "west": "east2",
@@ -209,7 +217,9 @@
       "name": "Quarantine Room 106",
       "coordinate" : "Quarantine Room 106",
       "description": "The room is dark, with only a flickering lamp providing dim light. The patient on the bed has turned into a zombie, their movements slow and jerky",
-      "items": [],
+      "items": [
+        "health serum"
+      ],
       "npc" : [
       ],
       "exits": {
@@ -239,7 +249,7 @@
         "key"
       ],
       "npc" : [
-        "Antonio Ramos"
+        "zombie"
       ],
       "exits": {
         "north": "east4"
@@ -249,8 +259,12 @@
       "name": "Hospital Quarantine Hallway",
       "coordinate" : "east5",
       "description": "The hallway is covered in plastic sheets, creating a claustrophobic and ominous atmosphere. The only sound is the shuffling of zombie feet and the occasional groan. On the wall you notice a large spray painted '8'.",
-      "items": [],
+      "items": [
+        "chainsaw"
+      ],
       "npc" : [
+        "zombie",
+        "zombie"
       ],
       "exits": {
         "west": "east4"
@@ -263,6 +277,7 @@
       "items": [
       ],
        "npc" : [
+         "zombie"
        ],
       "exits": {
         "east": "center",
@@ -286,10 +301,11 @@
     {
       "name": "Hospital PSYCH Ward Hallway",
       "coordinate": "west3",
-      "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+      "description": "The poorly-lit hallway is in disarray, with flickering overhead lights casting a ghostly pallor over the surroundings. Distant growls from the undead intermingle with frenzied screams of former patients, creating a cacophony of terror. Blood stains and deep scratches mar the walls, while discarded medical equipment creates an obstacle course to navigate through.",
       "items": [
       ],
       "npc" : [
+        "zombie"
       ],
       "exits": {
         "north": "west3north1",
@@ -301,7 +317,7 @@
     {
   "name": "Hospital PSYCH Ward Hallway",
   "coordinate": "west4",
-  "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+  "description": "The hallway is in a state of disarray, poorly lit by flickering overhead lights that cast an eerie glow. The distant growls of the undead mingle with the frenzied screams of former patients, creating a chilling symphony of terror. Bloodstains and deep scratches mar the walls, while abandoned medical equipment creates a daunting obstacle course to navigate.",
   "items": [
   ],
       "npc" : [
@@ -316,7 +332,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west5",
-    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+    "description": "The hallway is dimly lit and in disarray, with flickering overhead lights casting a haunting pallor over the surroundings. Distant growls from the undead mix with frenzied screams of previous patients, creating a jarring symphony of fear. Blood stains and deep scratches deface the walls, while abandoned medical equipment obstructs the path and creates a challenging obstacle course.",
     "items": [
     ],
     "npc" : [
@@ -334,6 +350,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "west6north1",
@@ -348,6 +365,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "west6north2",
@@ -358,10 +376,11 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west6north2",
-    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+    "description": "The hallway is poorly illuminated and in a state of disarray, with flickering overhead lights casting a creepy hue over the surroundings. Distant growls from the undead blend with frantic cries of former patients, creating a discordant chorus of terror. Bloodstains and deep gouges mar the walls, while forsaken medical equipment hinders the way and presents a formidable obstacle course.",
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "east": "west5north2"
@@ -370,7 +389,7 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west5north2",
-    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+    "description": "The dim hallway has inadequate, unsettling lighting. Flickering overhead lights add to the eerie atmosphere. Distant growls from the undead mix with cries of past patients, creating fear that echoes throughout. Bloodstains and gouges hint at a gruesome past, while abandoned medical equipment creates an obstacle course.",
     "items": [
     ],
     "npc" : [
@@ -387,6 +406,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "west4north3",
@@ -396,8 +416,9 @@
   {
     "name": "Hospital PSYCH Ward Hallway",
     "coordinate": "west3north2",
-    "description": "The hallway is dimly lit and chaotic, with flickering lights overhead and the distant growls of the undead mixing with the loud and frenzied screams of patients from its past as a psych ward. The walls are covered in blood and deep scratches, and broken medical equipment litters the floor, creating a labyrinth of obstacles to navigate.",
+    "description": "The poorly lit hallway contributes to the eerie atmosphere, with flickering overhead lights adding to the effect. Distant growls from the undead intermingle with the cries of past patients, producing fear that echoes throughout the space. Bloodstains and gouges suggest a gruesome past, while forsaken medical equipment poses an obstacle course for those navigating through the area.",
     "items": [
+      "scalpel"
     ],
     "npc" : [
     ],
@@ -413,6 +434,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "west3north2",
@@ -424,6 +446,7 @@
     "coordinate": "west3north1",
     "description": "The room is empty, except for a single bed and a broken window. The walls are smeared with blood, and the air is thick with the stench of rotting flesh.",
     "items": [
+      "health serum"
     ],
     "npc" : [
     ],
@@ -436,6 +459,7 @@
     "coordinate": "west3south1",
     "description": "The room is cramped, with barely enough space for the bed and a small table. The patient on the bed has turned into a zombie, their movements slow and jerky.",
     "items": [
+      "scalpel"
     ],
     "npc" : [
   ],
@@ -448,8 +472,10 @@
     "coordinate": "west4south1",
     "description": "The room is dark, with only a flickering lamp providing dim light. The patient on the bed has turned into a zombie, their movements slow and jerky.",
     "items": [
+      "bed pan"
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "west4"
@@ -474,6 +500,8 @@
     "items": [
     ],
     "npc" : [
+      "zombie",
+      "zombie"
     ],
     "exits": {
       "south": "west5"
@@ -484,6 +512,8 @@
     "coordinate": "west6south1",
     "description": "A room with padded walls",
     "items": [
+      "health serum",
+      "fire axe"
     ],
     "npc" : [
     ],
@@ -496,7 +526,7 @@
     "coordinate": "west7north1",
     "description": "A room with padded walls",
     "items": [
-      "health serum"
+      "scalpel"
     ],
     "npc" : [
       "Steve Perez"
@@ -523,6 +553,7 @@
     "coordinate": "west4north3",
     "description": "A room with padded walls",
     "items": [
+      "bed pan"
     ],
     "npc" : [
     ],
@@ -537,6 +568,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "north2",
@@ -550,6 +582,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "north3",
@@ -564,6 +597,8 @@
     "items": [
     ],
     "npc" : [
+      "zombie",
+      "zombie"
     ],
     "exits": {
       "north": "north4",
@@ -578,6 +613,7 @@
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "north": "north5",
@@ -592,6 +628,8 @@
     "items": [
     ],
     "npc" : [
+      "zombie",
+      "zombie"
     ],
     "exits": {
       "south": "north4",
@@ -601,10 +639,11 @@
   {
     "name": "Autopsy Room",
     "coordinate": "north2west1",
-    "description": "Room with dead bodies cut up",
+    "description": "You enter the Autopsy Room and are immediately hit with the pungent stench of death. The walls are lined with metal tables and sharp instruments, and on each one, you see the remnants of gruesome dissections. The putrid smell of decay lingers in the air, almost suffocating. The only presence in the room is that of a zombie, slowly creeping towards you with a guttural moan. You must find a way out, but beware of any other lurking undead that may be hiding in the shadows.",
     "items": [
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "east": "north2"
@@ -613,10 +652,12 @@
   {
     "name": "Freezer",
     "coordinate": "north3east1",
-    "description": "Frozen bodies everywhere",
+    "description": "As you enter the Freezer, you immediately feel a blast of icy cold air. The room is filled with rows of metal shelves, each one stacked with frozen bodies. The dim overhead light flickers, casting an eerie glow over the frozen corpses, creating an unsettling and ominous atmosphere. You notice a fire axe lying on one of the shelves, a weapon that could potentially come in handy against the undead presence in the room. Suddenly, you hear a low moan, and a zombie emerges from the shadows, lurching towards you with outstretched arms.",
     "items": [
+      "fire axe"
     ],
     "npc" : [
+      "zombie"
     ],
     "exits": {
       "west": "north3"
@@ -625,10 +666,14 @@
   {
     "name": "Crematorium",
     "coordinate": "north4west1",
-    "description": "Frozen bodies everywhere",
+    "description": "In the Crematorium, burning flesh assaults your senses. Fiery incinerators fill the room, casting a sinister red glow. Three zombies slowly approach, but a chainsaw lies nearby. Smoke clouds your vision, and survival hinges on defeating the undead and escaping east before flames overwhelm you.",
     "items": [
+      "chainsaw"
     ],
     "npc" : [
+      "zombie",
+      "zombie",
+      "zombie"
     ],
     "exits": {
       "east": "north4"
@@ -637,10 +682,13 @@
   {
     "name": "Death Locker",
     "coordinate": "north5east1",
-    "description": "It looks like a butcher locker",
+    "description": "In the Death Locker, decay overwhelms as zombies lurk. Tables and hooks line the walls. With no items, survival rests on defeating the three undead and escaping west. Beware, as the cramped space may impede fighting and catching you off guard.",
     "items": [
     ],
     "npc" : [
+      "zombie",
+      "zombie",
+      "zombie"
     ],
     "exits": {
       "west": "north5"

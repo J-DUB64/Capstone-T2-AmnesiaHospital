@@ -1,6 +1,6 @@
 [
   {
-    "name": "Small Health Serum",
+    "name": "small health serum",
     "description": "A small serum that heals you for 25 health points.",
     "type": 1,
     "value": 25,
@@ -88,5 +88,26 @@
     "type": 2,
     "value": 1,
     "durability": 1
+  },
+  {
+    "name": "fire axe",
+    "description": "A large axe designed for chopping wood, but also effective against zombies",
+    "type": 4,
+    "value": 25,
+    "durability" : 5
+  },
+  {
+    "name": "crowbar",
+    "description": "A metal bar used for prying things open",
+    "type": 4,
+    "value": 15,
+    "durability" : 3
+  },
+  {
+    "name": "chainsaw",
+    "description": "A powerful saw with a rotating chain, ideal for cutting through zombie flesh",
+    "type": 4,
+    "value": 100,
+    "durability" : 2
   }
 ]
