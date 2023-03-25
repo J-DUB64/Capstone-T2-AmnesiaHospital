@@ -15,6 +15,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameFlow {
+
   public static final String PRESS_ENTER = "Press Enter to continue...";
   private static Scanner scanner = new Scanner(System.in);
   JsonData jsonData = new JsonData();
@@ -28,77 +29,62 @@ public class GameFlow {
   Player mainPlayer = new Player("person", rooms.get(0));
 
 
-  public void userTurn(){
-    while(true){
+  public void userTurn() {
+    while (true) {
       System.out.println("----------Current Status----------");
-    System.out.println("You are in " + mainPlayer.getCurrentRoom().getName());
+      System.out.println("You are in " + mainPlayer.getCurrentRoom().getName());
       System.out.println("Current Health: " + mainPlayer.getHealth());
       mainPlayer.printInventory();
 
-    String userInput = scanner.nextLine();
-    if(userInput.isEmpty()){
-      System.out.println("Not a valid input.");
-    }
-    else if(userInput.startsWith("go ")){
-      String direction = userInput.substring(3);
-      mainPlayer.move(direction, rooms);
-    }
-    else if(userInput.startsWith("use ")){
-      String item = userInput.substring(4);
-      mainPlayer.use(item);
-    }
-    else if(userInput.startsWith("get ")){
-      String item = userInput.substring(4);
-      mainPlayer.pickUpItem(item, items);
-    }
-
-    else if(userInput.startsWith("look")) {
-      lookAround();
-      }
-
-    else if(userInput.startsWith("fight")){
-      Zombie check = null;
-      for(Zombie iterZombie : zombies){
-        if(iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())){
-          check = iterZombie;
-          combat(mainPlayer, iterZombie);
-          break;
+      String userInput = scanner.nextLine();
+      if (userInput.isEmpty()) {
+        System.out.println("Not a valid input.");
+      } else if (userInput.startsWith("go ")) {
+        String direction = userInput.substring(3);
+        mainPlayer.move(direction, rooms);
+      } else if (userInput.startsWith("use ")) {
+        String item = userInput.substring(4);
+        mainPlayer.use(item);
+      } else if (userInput.startsWith("get ")) {
+        String item = userInput.substring(4);
+        mainPlayer.pickUpItem(item, items);
+      } else if (userInput.startsWith("look")) {
+        lookAround();
+        for (Zombie iterZombie : zombies) {
+          if (iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())) {
+            System.out.println("The person you see is a zombie! They lunge forward to attack you!");
+            combat(mainPlayer, iterZombie);
+            break;
+          }
         }
-      }
-      if(check == null){
-        System.out.println("You cannot fight anything here.");
-      }
-    }
-
-    else if(userInput.startsWith("quit")) {
-      quit();
-    }
-
-    else if (userInput.startsWith("examine ")) {
-      String itemName = userInput.substring(8);
-      examine(itemName);
-    }
-
-    else if (userInput.startsWith("drop ")) {
-      String itemName = userInput.substring(5);
-      mainPlayer.dropItem(itemName);
-    }
-
-    else if (userInput.toLowerCase().startsWith("talk")) {
-      talk();
-    }
-
-    else if (userInput.equalsIgnoreCase("inventory")) {
-      mainPlayer.showInventory();
-    }
-    else if (userInput.equalsIgnoreCase("help")) {
-      getHelp();
-    }
-
-
-
-    else if (userInput.startsWith("give ")) {
-      String itemName = userInput.substring(5);
+      } else if (userInput.startsWith("fight")) {
+        Zombie check = null;
+        for (Zombie iterZombie : zombies) {
+          if (iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())) {
+            check = iterZombie;
+            combat(mainPlayer, iterZombie);
+            break;
+          }
+        }
+        if (check == null) {
+          System.out.println("You cannot fight anything here.");
+        }
+      } else if (userInput.startsWith("quit")) {
+        quit();
+      } else if (userInput.startsWith("examine ")) {
+        String itemName = userInput.substring(8);
+        examine(itemName);
+      } else if (userInput.startsWith("drop ")) {
+        String itemName = userInput.substring(5);
+        mainPlayer.dropItem(itemName);
+      } else if (userInput.toLowerCase().startsWith("talk")) {
+        talk();
+      } else if (userInput.equalsIgnoreCase("inventory")) {
+        mainPlayer.showInventory();
+      } else if (userInput.equalsIgnoreCase("help")) {
+        getHelp();
+      } else if (userInput.startsWith("give ")) {
+        String itemName = userInput.substring(5);
         if (itemName.equalsIgnoreCase("health serum")) {
           mainPlayer.giveHealingSerum(npcs);
         } else {
@@ -107,9 +93,6 @@ public class GameFlow {
       }
 
 
-
-
-    else{
       System.out.println("That is not a valid input. Your choices are:\n" +
           "help\n"+
           "go [direction]\n" +
@@ -123,7 +106,7 @@ public class GameFlow {
           "inventory");
     }
   }
-}
+
   public static void clearScreen() {
     System.out.print("\033[H\033[2J");
     System.out.flush();
