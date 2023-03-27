@@ -27,10 +27,38 @@ public class MusicPlayer {
     }
   }
 
+  public void setVolume(float volume) {
+    if (clip != null) {
+      FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+      gainControl.setValue(volume);
+    }
+  }
+
+  public float getVolume() {
+    if (clip != null) {
+      FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+      return gainControl.getValue();
+    }
+    return 0.0f;
+  }
+
+  public void mute(boolean mute) {
+    if (clip != null) {
+      BooleanControl muteControl = (BooleanControl) clip.getControl(BooleanControl.Type.MUTE);
+      muteControl.setValue(mute);
+    }
+  }
+
+
+
   public void stop() {
     if (clip != null) {
       clip.stop();
       clip.close();
     }
+  }
+
+  public boolean isMuted() {
+    return false;
   }
 }
