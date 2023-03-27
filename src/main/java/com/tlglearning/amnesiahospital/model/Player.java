@@ -1,6 +1,7 @@
 package com.tlglearning.amnesiahospital.model;
 
 import java.sql.SQLOutput;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -10,6 +11,7 @@ public class Player {
   private int health;
   private Room currentRoom;
   private Inventory inventory;
+  private boolean foundPilot;
 
 
   public Player(String name, Room startingRoom) {
@@ -17,6 +19,7 @@ public class Player {
     this.health = 100;
     this.currentRoom = startingRoom;
     this.inventory = new Inventory();
+    this.foundPilot = false;
   }
 
   public void move(String direction, List<Room> rooms) {
@@ -47,9 +50,12 @@ public class Player {
     if (inventory.contains(item)) {
       if (item.getType() == 1) {
         health = health + item.getValue();
-      } else if (item.getType() == 2 && currentRoom.getName().equals("north5")) {
+        inventory.remove(item);
+      } else if (item.getType() == 2 && currentRoom.getCoordinate().equals("north5")) {
         currentRoom.getExits().put("north", "north6");
-        System.out.println("You have opened the door with the key.");
+        System.out.println("You have opened the door with the key. You can now go north.");
+        int cutLock = currentRoom.getDescription().length()-29;
+        currentRoom.setDescription(currentRoom.getDescription().substring(0,cutLock));
       } else if (item.getName().equals("map")) {
         String[] mapArt = item.getMapArt();
         System.out.println("You are currently in " + currentRoom.getName() + " at coordinates " + currentRoom.getCoordinate());
@@ -113,6 +119,19 @@ public class Player {
     }
   }
 
+  public void printInventory(){
+    if(inventory == null || inventory.isEmpty()){
+      System.out.println("[]");
+    }
+    else {
+      System.out.print("[ ");
+      for (Item item : inventory) {
+        System.out.print(item.getName() + ", ");
+      }
+      System.out.println("]");
+    }
+  }
+
   public int getHealth() {
     return health;
   }
@@ -157,74 +176,38 @@ public class Player {
   public Inventory getInventory() {
     return inventory;
   }
+
+  public boolean isFoundPilot() {
+    return foundPilot;
+  }
+
+  public void giveHealingSerum(List<Npc> npcs) {
+    boolean found = false;
+    for (Npc npc : npcs) {
+      if (currentRoom.getNPC().contains(npc.getName())) {
+        found = true;
+        Item serum = null;
+        for (Item item : inventory) {
+          if (item.getName().equalsIgnoreCase("health serum")) {
+            serum = item;
+            inventory.remove(serum);
+            npc.setHealed(true);
+            System.out.println("You give the health serum to " + npc.getName() + ".");
+            if (npc.getName().equals("Steve Perez")) {
+              System.out.println("Thank you! Now, let's get to that helicopter on the roof!");
+              List<String> healed = List.of(
+                  "Thank you! Now, let's get to that helicopter on the roof!");
+              npc.setDialogue(healed);
+              foundPilot = true;
+            }
+            break;
+          }
+        }
+      }
+    }
+    if (!found) {
+      System.out.println("NPC not found.");
+    }
+  }
 }
-
-
-//  public void equipWeapon(Weapon weapon) {
-//    if (inventory.containsKey(weapon.getName())) {
-//      equippedWeapon = weapon;
-//      System.out.println("You have equipped " + weapon.getName());
-//    } else {
-//      System.out.println("You don't have that weapon in your inventory.");
-//    }
-//  }
-
-//  public void useItem(Item item) {
-//    if (inventory.contains(item)) {
-////      Item item = inventory.get(item);
-//      item.use(this);
-//    } else {
-//      System.out.println("You don't have that item!");
-//    }
-//  }
-//
-//
-//  public void addItem(Item item) {
-//    inventory.add(item);
-//  }
-//
-//  public void removeItem(Item item) {
-//    inventory.remove(item);
-//  }
-//
-//  public void takeDamage(int damage) {
-//    health -= damage;
-//    if (health <= 0) {
-//      System.out.println("You have died!...what a shame");
-//    } else {
-//      System.out.println("You took " + damage + " damage. Health: " + health);
-//    }
-//  }
-//
-//  public void heal(int healthPoints) {
-//    health += healthPoints;
-//    System.out.println("You healed " + healthPoints + " health points. Health: " + health);
-//  }
-//
-////  public void interact(Interactable interactable) {
-////    interactable.interact(this);
-////  }
-//
-//  public String getName() {
-//    return name;
-//  }
-//
-//  public int getHealth() {
-//    return health;
-//  }
-//
-//  public Room getCurrentRoom() {
-//    return currentRoom;
-//  }
-//
-//  public Weapon getEquippedWeapon() {
-//    return equippedWeapon;
-//  }
-//
-//  public Inventory getInventory() {
-//    return inventory;
-//  }
-//}
-//
-//
 

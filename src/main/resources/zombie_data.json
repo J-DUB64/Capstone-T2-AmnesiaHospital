@@ -1,8 +1,158 @@
 [
   {
-    "name": "small zombie",
-    "health": 10,
+    "name": "zombie",
+    "health": 2,
     "hitPeak": 20,
     "location": "south5"
+  },
+  {
+    "name": "zombie",
+    "health": 10,
+    "hitPeak": 20,
+    "location": "ICU Room 103"
+  },
+  {
+    "name": "zombie",
+    "health": 8,
+    "hitPeak": 20,
+    "location": "south1"
+  },
+  {
+    "name": "zombie",
+    "health": 10,
+    "hitPeak": 20,
+    "location": "east2"
+  },
+  {
+    "name": "zombie",
+    "health": 8,
+    "hitPeak": 20,
+    "location": "Quarantine Room 104"
+  },
+  {
+    "name": "zombie",
+    "health": 9,
+    "hitPeak": 20,
+    "location": "east3"
+  },
+  {
+    "name": "zombie",
+    "health": 20,
+    "hitPeak": 20,
+    "location": "Quarantine Room 108"
+  },
+  {
+    "name": "zombie",
+    "health": 20,
+    "hitPeak": 20,
+    "location": "east5"
+  },
+  {
+    "name": "zombie",
+    "health": 12,
+    "hitPeak": 20,
+    "location": "west1"
+  },
+  {
+    "name": "zombie",
+    "health": 9,
+    "hitPeak": 20,
+    "location": "west3"
+  },
+  {
+    "name": "zombie",
+    "health": 10,
+    "hitPeak": 20,
+    "location": "west6"
+  },
+  {
+    "name": "zombie",
+    "health": 15,
+    "hitPeak": 20,
+    "location": "west6north1"
+  },
+  {
+  "name": "zombie",
+  "health": 12,
+  "hitPeak": 20,
+  "location": "west6north2"
+  },
+  {
+    "name": "zombie",
+    "health": 8,
+    "hitPeak": 20,
+    "location": "west4north2"
+  },
+  {
+    "name": "zombie",
+    "health": 13,
+    "hitPeak": 20,
+    "location": "west3north1"
+  },
+  {
+    "name": "zombie",
+    "health": 15,
+    "hitPeak": 20,
+    "location": "west4south1"
+  },
+  {
+    "name": "zombie",
+    "health": 12,
+    "hitPeak": 20,
+    "location": "west5north1"
+  },
+  {
+    "name": "zombie",
+    "health": 8,
+    "hitPeak": 20,
+    "location": "north1"
+  },
+  {
+    "name": "zombie",
+    "health": 13,
+    "hitPeak": 20,
+    "location": "north2"
+  },
+  {
+    "name": "zombie",
+    "health": 18,
+    "hitPeak": 20,
+    "location": "north3"
+  },
+  {
+    "name": "zombie",
+    "health": 9,
+    "hitPeak": 20,
+    "location": "north4"
+  },
+  {
+    "name": "zombie",
+    "health": 10,
+    "hitPeak": 20,
+    "location": "north5"
+  },
+  {
+    "name": "zombie",
+    "health": 9,
+    "hitPeak": 20,
+    "location": "north2west1"
+  },
+  {
+    "name": "zombie",
+    "health": 19,
+    "hitPeak": 20,
+    "location": "north3east1"
+  },
+  {
+    "name": "zombie",
+    "health": 35,
+    "hitPeak": 20,
+    "location": "north4west1"
+  },
+  {
+    "name": "zombie",
+    "health": 35,
+    "hitPeak": 20,
+    "location": "north5east1"
   }
 ]

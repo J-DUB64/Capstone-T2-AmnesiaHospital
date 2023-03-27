@@ -12,9 +12,11 @@
     "description": "Exits the game"
   },
 
-  { "name": "Go", "description": "Move to a different room. Type: Go (direction) " },
+  { "name": "Go", "description": "Move to a different room. Type: go (direction) " },
   { "name": "use", "description": "Use an item in your inventory. Type: use (item)" },
+  { "name": "examine", "description": "Get a in depth description of an item in your inventory. Type: examine (item)" },
   { "name": "inventory", "description": "Display whats in your inventory. Type: inventory" },
-  { "name": "Get", "description": "Get an item inside the room. Type: Get (Item)"},
+  { "name": "Get", "description": "Get an item inside the room. Type: get (Item)"},
+  { "name":  "audio", "description": "Adjust the volume or mute the music. Type: audio"},
   { "name": "fight", "description": "Fight zombies you encounter in the hospital. Type: fight (zombie name)"}
 ]

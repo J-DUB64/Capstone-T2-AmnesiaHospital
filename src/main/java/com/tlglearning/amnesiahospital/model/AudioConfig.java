@@ -1,15 +1,26 @@
 package com.tlglearning.amnesiahospital.model;
 
-public class AudioConfig {
-  private String background_music;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-  public String getBackgroundMusic() {
-    return background_music;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class AudioConfig {
+  @JsonProperty("background_music")
+  private String backgroundMusicString;
+  private URL backgroundMusic;
+
+  public AudioConfig() {
   }
 
-  public void setBackgroundMusic(String background_music) {
-    this.background_music = background_music;
+  public URL getBackgroundMusic() {
+    if (backgroundMusic == null) {
+      try {
+        backgroundMusic = new URL(backgroundMusicString);
+      } catch (MalformedURLException e) {
+        e.printStackTrace();
+      }
+    }
+    return backgroundMusic;
   }
 }
-
-
