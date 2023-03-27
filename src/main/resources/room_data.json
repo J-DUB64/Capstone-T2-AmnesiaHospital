@@ -83,7 +83,7 @@
       "coordinate" : "ICU Room 108",
       "description": "The room is dimly lit, with a patient lying on the bed, their eyes lifeless and their skin rotting. The machines beep rhythmically, but their sound is drowned out by the groans of the undead.",
       "items": [
-        "bed pan"
+        "bedpan"
       ],
       "npc" : [
       ],
@@ -263,7 +263,6 @@
         "chainsaw"
       ],
       "npc" : [
-        "zombie",
         "zombie"
       ],
       "exits": {
@@ -500,7 +499,6 @@
     "items": [
     ],
     "npc" : [
-      "zombie",
       "zombie"
     ],
     "exits": {
@@ -597,7 +595,6 @@
     "items": [
     ],
     "npc" : [
-      "zombie",
       "zombie"
     ],
     "exits": {
@@ -628,7 +625,6 @@
     "items": [
     ],
     "npc" : [
-      "zombie",
       "zombie"
     ],
     "exits": {
@@ -671,8 +667,6 @@
       "chainsaw"
     ],
     "npc" : [
-      "zombie",
-      "zombie",
       "zombie"
     ],
     "exits": {
@@ -686,8 +680,6 @@
     "items": [
     ],
     "npc" : [
-      "zombie",
-      "zombie",
       "zombie"
     ],
     "exits": {
