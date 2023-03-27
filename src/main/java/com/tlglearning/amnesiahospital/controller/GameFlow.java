@@ -50,13 +50,6 @@ public class GameFlow {
         mainPlayer.pickUpItem(item, items);
       } else if (userInput.startsWith("look")) {
         lookAround();
-        for (Zombie iterZombie : zombies) {
-          if (iterZombie.getLocation().equals(mainPlayer.getCurrentRoom().getCoordinate())) {
-            System.out.println("The person you see is a zombie! They lunge forward to attack you!");
-            combat(mainPlayer, iterZombie);
-            break;
-          }
-        }
       } else if (userInput.startsWith("fight")) {
         Zombie check = null;
         for (Zombie iterZombie : zombies) {
@@ -92,18 +85,19 @@ public class GameFlow {
         }
       }
 
-
-      System.out.println("That is not a valid input. Your choices are:\n" +
-          "help\n"+
-          "go [direction]\n" +
-          "use [item]\n" +
-          "get [item]\n" +
-          "look\n" +
-          "quit\n" +
-          "fight\n" +
-          "examine [item]\n" +
-          "drop [item]\n" +
-          "inventory");
+      else {
+        System.out.println("That is not a valid input. Your choices are:\n" +
+            "help\n" +
+            "go [direction]\n" +
+            "use [item]\n" +
+            "get [item]\n" +
+            "look\n" +
+            "quit\n" +
+            "fight\n" +
+            "examine [item]\n" +
+            "drop [item]\n" +
+            "inventory");
+      }
     }
   }
 
@@ -112,7 +106,7 @@ public class GameFlow {
     System.out.flush();
   }
 
-  public String quit() {
+  public void quit() {
     String input;
     System.out.println("Are you sure you want to quit? (y/n)");
     input = scanner.nextLine();
@@ -120,7 +114,6 @@ public class GameFlow {
       System.out.println("Thanks for playing Amnesia Hospital. Goodbye!");
       System.exit(0);
     }
-    return input;
   }
 
   public void startGame() {
@@ -179,7 +172,7 @@ public class GameFlow {
       if(currentRoom.getNPC().contains("zombie")){
         System.out.println("The person you see is a zombie! They lunge forward to attack you!");
         for(Zombie zombie : zombies) {
-          if(zombie.getLocation().equals(currentRoom.getCoordinate ())) {
+          if(zombie.getLocation().equals(currentRoom.getCoordinate())) {
             combat(mainPlayer, zombie);
           }
         }
@@ -313,7 +306,7 @@ public class GameFlow {
             System.out.println("You defeat the zombie! He disintegrates onto the floor.");
             List<String> empty = List.of();
             player.getCurrentRoom().setNPC(empty);
-            break;
+            return;
           }
         }
         zombie.zombieAttack(player);
