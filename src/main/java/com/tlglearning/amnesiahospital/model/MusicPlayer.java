@@ -9,6 +9,7 @@ import java.net.URLConnection;
 
 public class MusicPlayer {
   private Clip clip;
+  private Boolean toMute = true;
 
   public void play(URL fileURL) {
     try {
@@ -58,7 +59,11 @@ public class MusicPlayer {
     }
   }
 
-  public boolean isMuted() {
-    return false;
+  public Boolean getToMute() {
+    return toMute;
+  }
+
+  public void setToMute(Boolean toMute) {
+    this.toMute = toMute;
   }
 }

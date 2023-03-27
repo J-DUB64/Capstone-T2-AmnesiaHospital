@@ -67,9 +67,9 @@ public class GameFlow {
 
       switch (input) {
         case "1":
-          boolean isMuted = musicPlayer.isMuted();
-          musicPlayer.mute(!isMuted);
-          System.out.println("Music " + (!isMuted ? "muted" : "unmuted"));
+          musicPlayer.mute(musicPlayer.getToMute());
+          musicPlayer.setToMute(!musicPlayer.getToMute());
+          System.out.println("Music " + (!musicPlayer.getToMute()? "muted" : "unmuted"));
           break;
         case "2":
           float currentVolume = musicPlayer.getVolume();
@@ -83,6 +83,44 @@ public class GameFlow {
           break;
         case "4":
           System.out.println("Returning to main menu.");
+          break;
+        default:
+          System.out.println("Invalid choice. Please try again.");
+          break;
+      }
+    } while (!input.equals("4"));
+  }
+  public void inGameAudioSettings() {
+    Scanner scanner = new Scanner(System.in);
+    String input;
+
+    do {
+      System.out.println("Audio settings:");
+      System.out.println("1. Toggle mute");
+      System.out.println("2. Increase volume");
+      System.out.println("3. Decrease volume");
+      System.out.println("4. Back to game");
+      System.out.print("Enter your choice (1-4): ");
+      input = scanner.nextLine();
+
+      switch (input) {
+        case "1":
+          musicPlayer.mute(musicPlayer.getToMute());
+          musicPlayer.setToMute(!musicPlayer.getToMute());
+          System.out.println("Music " + (!musicPlayer.getToMute()? "muted" : "unmuted"));
+          break;
+        case "2":
+          float currentVolume = musicPlayer.getVolume();
+          musicPlayer.setVolume(currentVolume + 5.0f);
+          System.out.println("Volume increased.");
+          break;
+        case "3":
+          currentVolume = musicPlayer.getVolume();
+          musicPlayer.setVolume(currentVolume - 5.0f);
+          System.out.println("Volume decreased.");
+          break;
+        case "4":
+          System.out.println("Returning to game.");
           break;
         default:
           System.out.println("Invalid choice. Please try again.");
@@ -159,6 +197,8 @@ public class GameFlow {
         } else {
           System.out.println("You can only give healing serum to NPCs.");
         }
+      } else if(userInput.startsWith("audio")){
+        inGameAudioSettings();
       }
 
       else {
@@ -170,6 +210,7 @@ public class GameFlow {
             "look\n" +
             "quit\n" +
             "fight\n" +
+            "audio\n"+
             "examine [item]\n" +
             "drop [item]\n" +
             "inventory");
