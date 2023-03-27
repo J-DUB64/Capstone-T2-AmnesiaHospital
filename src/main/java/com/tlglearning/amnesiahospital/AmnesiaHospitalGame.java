@@ -19,8 +19,8 @@ public class AmnesiaHospitalGame {
       musicPlayer.play(audioConfig.getBackgroundMusic());
 
       // Start the game
-      GameFlow gameFlow = new GameFlow();
-      gameFlow.startGame();
+      GameFlow gameFlow = new GameFlow(musicPlayer);
+      gameFlow.mainMenu();
 
       // When the game is finished or the user wants to quit, stop the music playback
       musicPlayer.stop();

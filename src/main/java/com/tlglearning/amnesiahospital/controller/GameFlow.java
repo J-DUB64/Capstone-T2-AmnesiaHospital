@@ -1,5 +1,5 @@
 package com.tlglearning.amnesiahospital.controller;
-
+import com.tlglearning.amnesiahospital.model.MusicPlayer;
 import com.tlglearning.amnesiahospital.model.AsciiArt;
 import com.tlglearning.amnesiahospital.model.Command;
 import com.tlglearning.amnesiahospital.model.GameData;
@@ -15,6 +15,82 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameFlow {
+
+  public void mainMenu() {
+    Scanner scanner = new Scanner(System.in);
+    String input;
+
+    do {
+      System.out.println("Main menu:");
+      System.out.println("1. Start game");
+      System.out.println("2. Audio settings");
+      System.out.println("3. Quit");
+      System.out.print("Enter your choice (1-3): ");
+      input = scanner.nextLine();
+
+      switch (input) {
+        case "1":
+          startGame();
+          break;
+        case "2":
+          audioSettings();
+          break;
+        case "3":
+          System.out.println("Exiting the game...");
+          break;
+        default:
+          System.out.println("Invalid choice. Please try again.");
+          break;
+      }
+    } while (!input.equals("3"));
+  }
+
+
+  private MusicPlayer musicPlayer;
+
+  public GameFlow(MusicPlayer musicPlayer) {
+    this.musicPlayer = musicPlayer;
+  }
+
+  public void audioSettings() {
+    Scanner scanner = new Scanner(System.in);
+    String input;
+
+    do {
+      System.out.println("Audio settings:");
+      System.out.println("1. Toggle mute");
+      System.out.println("2. Increase volume");
+      System.out.println("3. Decrease volume");
+      System.out.println("4. Back to main menu");
+      System.out.print("Enter your choice (1-4): ");
+      input = scanner.nextLine();
+
+      switch (input) {
+        case "1":
+          boolean isMuted = musicPlayer.isMuted();
+          musicPlayer.mute(!isMuted);
+          System.out.println("Music " + (!isMuted ? "muted" : "unmuted"));
+          break;
+        case "2":
+          float currentVolume = musicPlayer.getVolume();
+          musicPlayer.setVolume(currentVolume + 5.0f);
+          System.out.println("Volume increased.");
+          break;
+        case "3":
+          currentVolume = musicPlayer.getVolume();
+          musicPlayer.setVolume(currentVolume - 5.0f);
+          System.out.println("Volume decreased.");
+          break;
+        case "4":
+          System.out.println("Returning to main menu.");
+          break;
+        default:
+          System.out.println("Invalid choice. Please try again.");
+          break;
+      }
+    } while (!input.equals("4"));
+  }
+
 
   public static final String PRESS_ENTER = "Press Enter to continue...";
   private static Scanner scanner = new Scanner(System.in);
